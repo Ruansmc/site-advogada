@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (scrollTopBtn) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > 150) {
         scrollTopBtn.classList.remove("hidden");
       } else {
         scrollTopBtn.classList.add("hidden");
