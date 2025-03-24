@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR"  class="scroll-smooth md:scroll-auto">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,86 +18,102 @@
       rel="stylesheet"
     />
     <link href="dist/styles.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="bg-white">
-      <header class="absolute inset-x-0 top-0 z-50">
-        <nav
-          class="flex items-center justify-between p-6 lg:px-8"
-          aria-label="Global"
-        >
-          <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
-              <span class="sr-only">Escritório de Advocacia ABC</span>
-              <img
-                class="w-auto h-8"
-                src="assets/MARCA - CHIRLEI PEREIRA SANTOS 01.png"
-                alt="Logo do Escritório"
-              />
-            </a>
+     <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Configuração do Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          zIndex: {
+            '-1': '-1',
+          }
+        }
+      }
+    }
+  </script>
+
+</head>
+<body>
+  <div class="bg-white">
+    <header class="absolute inset-x-0 top-0 z-50">
+      <nav class="fixed top-0 z-20 w-full bg-white border-b border-gray-200 shadow-md">
+        <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
+          
+          <!-- LOGO -->
+          <div class="flex items-center space-x-3">
+            <img src="assets/MARCA - CHIRLEI PEREIRA SANTOS PNG 02.png" class="h-12" alt="Logo do Escritório">
           </div>
-          <div class="flex lg:hidden">
-            <button
-              type="button"
-              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            >
-              <span class="sr-only">Abrir menu principal</span>
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-            </button>
+  
+          <!-- LINKS DESKTOP -->
+          <div class="hidden space-x-8 md:flex">
+            <a href="#saiba-mais" class="px-4 py-2 text-black transition rounded nav-link hover:bg-black hover:text-white">Saiba Mais</a>
+            <a href="#areas-atuacao" class="px-4 py-2 text-black transition rounded nav-link hover:bg-black hover:text-white">Áreas de Atuação</a>
+            <a href="#bibliografia" class="px-4 py-2 text-black transition rounded nav-link hover:bg-black hover:text-white">Bibliografia</a>
+            <a href="#contato" class="px-4 py-2 text-black transition rounded nav-link hover:bg-black hover:text-white">Contato</a>
           </div>
-          <div class="hidden lg:flex lg:gap-x-12">
-            <a
-              href="#areas-atuacao"
-              class="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Áreas de Atuação
-            </a>
-            <a
-              href="#bibliografia"
-              class="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Bibliografia
-            </a>
-            <a
-              href="#artigos"
-              class="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Artigos e Publicações
-            </a>
-            <a
-              href="#contato"
-              class="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Contato
-            </a>
-          </div>
-        </nav>
-      </header>
-      <div class="relative px-6 isolate pt-14 lg:px-8">
+  
+      
+        <!-- BOTÃO MENU MOBILE -->
+        <div class="flex items-center md:hidden">
+          <button id="menu-button" type="button">
+            <span class="sr-only">Abrir menu principal</span>
+            <svg class="w-5 h-5 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  
+     <!-- MENU MOBILE -->
+<div id="mobile-menu" class="hidden fixed top-14 left-0 w-[90%] mx-auto right-0 bg-gray-900 text-white shadow-md p-5 rounded-lg m-4 flex flex-col space-y-3">
+  <a href="#saiba-mais" class="transition mobile-link hover:text-gray-300">Saiba Mais</a>
+  <a href="#areas-atuacao"class="transition mobile-link hover:text-gray-300">Áreas de Atuação</a>
+  <a href="#bibliografia" class="transition mobile-link hover:text-gray-300">Bibliografia</a>
+  <a href="#contato" class="transition mobile-link hover:text-gray-300">Contato</a>
+</div>
+    </header>
+  </div>
+  
+      <!-- MENU MOBILE -->
+      <div id="mobile-menu" class="absolute left-0 flex flex-col hidden w-full p-4 space-y-4 bg-white shadow-md top-16">
+        <a href="#areas" class="mobile-link">Áreas de Atuação</a>
+        <a href="#bibliografia" class="mobile-link">Bibliografia</a>
+        <a href="#contato" class="mobile-link">Contato</a>
+      </div>
+    </header>
+  </div>
+  
+  <div class="relative px-6 isolate pt-14 lg:px-8">
+    <section class="relative h-screen bg-gray-50">
+      <!-- Imagem de fundo -->
+      <div class="absolute inset-0 w-full h-full">
+        <img src="assets/PAREDE.png" class="z-0 object-cover w-full h-full" alt="Imagem de Fundo">
+      </div>
+    </section>
+
+
         <!-- Contêiner relativo para a foto de perfil -->
+        <div class="relative w-full h-screen overflow-hidden">
+          <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full">
+            <source src="assets/vecteezy_business-and-lawyers-discussing-contract-papers-with-brass_15129291.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos em HTML5.
+          </video>
         <div
           class="relative max-w-2xl py-32 mx-auto text-center sm:py-48 lg:py-56"
         >
+        <div id="saiba-mais">
           <h1
-            class="relative z-10 text-4xl font-bold tracking-tight text-gray-900 text-balance sm:text-6xl"
-          >
-            Protegendo seus Direitos com Excelência e Dedicação
-          </h1>
+          class="relative z-10 text-4xl font-bold tracking-tight text-gray-200 text-balance sm:text-6xl"
+        >
+          Protegendo seus Direitos com Excelência e Dedicação
+        </h1>
+        </div>
+      
           <!-- Parágrafo -->
-          <p class="relative z-10 mt-6 text-lg leading-8 text-gray-600">
+          <p class="relative z-10 mt-6 text-lg leading-8 text-gray-200">
             O Escritório de Advocacia ABC está comprometido em oferecer soluções
             jurídicas eficientes e personalizadas. Com uma equipe experiente,
             atuamos nas principais áreas do Direito, sempre focados em garantir
@@ -114,7 +130,7 @@
             <a
               href="https://linktr.ee/chirleypordireito?lt_utm_source=lt_share_link#247837558"
               target="_blank"
-              class="text-sm font-semibold leading-6 text-gray-900"
+              class="text-sm font-semibold leading-6 text-gray-200"
               > Saiba Mais<span aria-hidden="true"→</span></a
             >
           </div>
@@ -347,7 +363,7 @@
         </div>
       </div>
 
-      <section
+      <!-- <section
         class="relative px-6 py-24 overflow-hidden bg-white isolate sm:py-32 lg:px-8"
       >
         <div
@@ -355,15 +371,10 @@
         ></div>
         <div
           class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"
-        ></div>
-        <div id="artigos" class="max-w-2xl mx-auto lg:max-w-4xl">
-          <h2
-            class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-          >
-            Artigos e Publicações
-          </h2>
+        ></div> -->
+       
           <!-- <img class="h-12 mx-auto" src="" alt="Workcation Logo" /> -->
-
+<!-- 
           <figure class="mt-10">
             <blockquote
               class="text-xl font-semibold leading-8 text-center text-gray-900 sm:text-2xl sm:leading-9"
@@ -398,7 +409,7 @@
             </figcaption>
           </figure>
         </div>
-      </section>
+      </section> -->
 
       <div class="py-16 bg-white sm:py-24">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -520,8 +531,8 @@
               >
                 <div class="flex-shrink-0">
                   <img
-                    class="w-auto h-12"
-                    src="assets/MARCA - CHIRLEI PEREIRA SANTOS 01.png"
+                    class="w-auto h-22"
+                    src="assets/MARCA - CHIRLEI PEREIRA SANTOS PNG 02.png"
                     alt="Logotipo da Empresa"
                   />
                 </div>
@@ -530,14 +541,13 @@
                 >
                   <blockquote class="text-lg leading-7 text-gray-500">
                     <p>
-                      "Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo expedita voluptas culpa sapiente alias molestiae."
+                      Rui Barbosa disse: "De tanto ver triunfar as nulidades, de tanto ver prosperar a desonra, de tanto ver crescer a injustiça, de tanto ver agigantarem-se os poderes nas mãos dos maus, o homem chega a desanimar da virtude, a rir-se da honra, a ter vergonha de ser honesto". 
                     </p>
                   </blockquote>
                   <div class="mt-6">
                     <p class="text-base font-medium text-gray-900">Chirley</p>
                     <p class="text-base font-medium text-indigo-600">
-                      CEO de Workcation
+                      Advogada
                     </p>
                   </div>
                 </div>
@@ -571,8 +581,25 @@
       id="scrollTopBtn"
       class="fixed hidden p-3 text-white transition-all duration-300 bg-indigo-600 rounded-full shadow-lg bottom-8 right-8 hover:bg-indigo-700"
     >
-      ↑
+    ↑
     </button>
-    <script src="src/bottomtop/index.js"></script>
+    <script src="/bottomtop/index.js"></script>
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+  });
+</script>
   </body>
 </html>
