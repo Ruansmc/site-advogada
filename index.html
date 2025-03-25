@@ -3,38 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Escritório de Advocacia ABC - Proteção dos direitos com excelência e dedicação"
-    />
-    <meta
-      name="keywords"
-      content="Advocacia, Direito Civil, Direito Penal, Direito Trabalhista"
-    />
-    <meta name="author" content="Escritório de Advocacia ABC" />
     <title>Escritório de Advocacia ABC</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link href="dist/styles.css" rel="stylesheet" />
-     <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Configuração do Tailwind -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          zIndex: {
-            '-1': '-1',
-          }
-        }
-      }
-    }
-  </script>
-
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        AOS.init({ duration: 1000, easing: "ease-out", once: true });
+      });
+    </script>
+  </head>
 <body>
   <div class="bg-white">
     <header class="absolute inset-x-0 top-0 z-50">
@@ -48,10 +27,10 @@
   
           <!-- LINKS DESKTOP -->
           <div class="hidden space-x-8 md:flex">
-            <a href="#saiba-mais" class="px-4 py-2 text-black transition rounded nav-link hover:bg-black hover:text-white">Saiba Mais</a>
-            <a href="#areas-atuacao" class="px-4 py-2 text-black transition rounded nav-link hover:bg-black hover:text-white">Áreas de Atuação</a>
-            <a href="#bibliografia" class="px-4 py-2 text-black transition rounded nav-link hover:bg-black hover:text-white">Bibliografia</a>
-            <a href="#contato" class="px-4 py-2 text-black transition rounded nav-link hover:bg-black hover:text-white">Contato</a>
+            <a href="#saiba-mais" class="px-4 py-2 text-orange-400 transition rounded nav-link hover:bg-orange-800 hover:text-white">Saiba Mais</a>
+            <a href="#areas-atuacao" class="px-4 py-2 text-orange-400 transition rounded nav-link hover:bg-orange-800 hover:text-white">Áreas de Atuação</a>
+            <a href="#bibliografia" class="px-4 py-2 text-orange-400 transition rounded nav-link hover:bg-orange-800 hover:text-white">Bibliografia</a>
+            <a href="#contato" class="px-4 py-2 text-orange-400 transition rounded nav-link hover:bg-orange-800 hover:text-white">Contato</a>
           </div>
   
       
@@ -97,7 +76,7 @@
 
         <!-- Contêiner relativo para a foto de perfil -->
         <div class="relative w-full h-screen overflow-hidden">
-          <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full">
+          <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full opacity-50">
             <source src="assets/vecteezy_business-and-lawyers-discussing-contract-papers-with-brass_15129291.mp4" type="video/mp4">
             Seu navegador não suporta vídeos em HTML5.
           </video>
@@ -106,14 +85,14 @@
         >
         <div id="saiba-mais">
           <h1
-          class="relative z-10 text-4xl font-bold tracking-tight text-gray-200 text-balance sm:text-6xl"
+          class="relative z-10 text-4xl font-bold tracking-tight text-cyan-950 text-balance sm:text-6xl"
         >
           Protegendo seus Direitos com Excelência e Dedicação
         </h1>
         </div>
       
           <!-- Parágrafo -->
-          <p class="relative z-10 mt-6 text-lg leading-8 text-gray-200">
+          <p class="relative z-10 mt-6 text-lg leading-8 text-white">
             O Escritório de Advocacia ABC está comprometido em oferecer soluções
             jurídicas eficientes e personalizadas. Com uma equipe experiente,
             atuamos nas principais áreas do Direito, sempre focados em garantir
@@ -124,13 +103,13 @@
               href="https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
-              class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              class="rounded-md bg-cyan-950 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
               >Agende uma Consulta</a
             >
             <a
               href="https://linktr.ee/chirleypordireito?lt_utm_source=lt_share_link#247837558"
               target="_blank"
-              class="text-sm font-semibold leading-6 text-gray-200"
+              class="text-sm font-semibold leading-6 text-white"
               > Saiba Mais<span aria-hidden="true"→</span></a
             >
           </div>
@@ -139,77 +118,59 @@
 
       <section id="areas-atuacao" class="py-24 bg-gray-50">
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
-          <div class="text-center">
-            <h2
-              class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-            >
-              Áreas de Atuação
-            </h2>
-            <p class="mt-4 text-lg leading-8 text-gray-600">
-              Oferecemos assessoria jurídica especializada em diversas áreas.
-            </p>
-          </div>
-          <div
-            class="grid grid-cols-1 mt-10 gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3"
-          >
-            <div class="text-center">
-              <h3 class="text-lg font-semibold text-gray-900">Direito Civil</h3>
-              <p class="mt-2 text-base text-gray-600">
-                Defesa de interesses patrimoniais e pessoais em contratos,
-                propriedade, sucessões e muito mais.
-              </p>
+            <div class="text-center transform translate-y-10 opacity-0 area item">
+                <h2 class="text-3xl font-bold tracking-tight text-cyan-950 sm:text-4xl">
+                    Áreas de Atuação
+                </h2>
+                <p class="mt-4 text-lg leading-8 text-gray-600">
+                    Oferecemos assessoria jurídica especializada em diversas áreas.
+                </p>
             </div>
-
-            <div class="text-center">
-              <h3 class="text-lg font-semibold text-gray-900">Direito Penal</h3>
-              <p class="mt-2 text-base text-gray-600">
-                Atuação em processos criminais com a experiência e técnica que a
-                defesa exige.
-              </p>
+            <div class="grid grid-cols-1 mt-10 gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
+                <div class="text-center transform translate-y-10 opacity-0 area-item">
+                    <h3 class="text-lg font-semibold text-gray-900">Direito Civil</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Defesa de interesses patrimoniais e pessoais em contratos, propriedade, sucessões e muito mais.
+                    </p>
+                </div>
+    
+                <div class="text-center transform translate-y-10 opacity-0 area-item">
+                    <h3 class="text-lg font-semibold text-gray-900">Direito Penal</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Atuação em processos criminais com a experiência e técnica que a defesa exige.
+                    </p>
+                </div>
+    
+                <div class="text-center transform translate-y-10 opacity-0 area-item">
+                    <h3 class="text-lg font-semibold text-gray-900">Direito Trabalhista</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Consultoria e advocacia em causas trabalhistas, resguardando os direitos dos trabalhadores e empregadores.
+                    </p>
+                </div>
+    
+                <div class="text-center transform translate-y-10 opacity-0 area-item">
+                    <h3 class="text-lg font-semibold text-gray-900">Direito Empresarial</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Assessoria jurídica para empresas, incluindo constituição, contratos, fusões e aquisições.
+                    </p>
+                </div>
+    
+                <div class="text-center transform translate-y-10 opacity-0 area-item">
+                    <h3 class="text-lg font-semibold text-gray-900">Direito Tributário</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Consultoria em planejamento tributário e defesa em processos administrativos e judiciais.
+                    </p>
+                </div>
+    
+                <div class="text-center transform translate-y-10 opacity-0 area-item">
+                    <h3 class="text-lg font-semibold text-gray-900">Direito de Família</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Resolução de conflitos familiares com sensibilidade e foco na melhor solução para todas as partes envolvidas.
+                    </p>
+                </div>
             </div>
-
-            <div class="text-center">
-              <h3 class="text-lg font-semibold text-gray-900">
-                Direito Trabalhista
-              </h3>
-              <p class="mt-2 text-base text-gray-600">
-                Consultoria e advocacia em causas trabalhistas, resguardando os
-                direitos dos trabalhadores e empregadores.
-              </p>
-            </div>
-
-            <div class="text-center">
-              <h3 class="text-lg font-semibold text-gray-900">
-                Direito Empresarial
-              </h3>
-              <p class="mt-2 text-base text-gray-600">
-                Assessoria jurídica para empresas, incluindo constituição,
-                contratos, fusões e aquisições.
-              </p>
-            </div>
-
-            <div class="text-center">
-              <h3 class="text-lg font-semibold text-gray-900">
-                Direito Tributário
-              </h3>
-              <p class="mt-2 text-base text-gray-600">
-                Consultoria em planejamento tributário e defesa em processos
-                administrativos e judiciais.
-              </p>
-            </div>
-
-            <div class="text-center">
-              <h3 class="text-lg font-semibold text-gray-900">
-                Direito de Família
-              </h3>
-              <p class="mt-2 text-base text-gray-600">
-                Resolução de conflitos familiares com sensibilidade e foco na
-                melhor solução para todas as partes envolvidas.
-              </p>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
       <div
         class="relative px-6 py-24 overflow-hidden bg-white isolate sm:py-32 lg:overflow-visible lg:px-0"
@@ -253,12 +214,12 @@
           >
             <div class="lg:pr-4">
               <div class="lg:max-w-lg">
-                <p class="text-base font-semibold leading-7 text-indigo-600">
+                <p class="text-base font-semibold leading-7 text-cyan-950">
                   Um pouco sobre mim
                 </p>
                 <div id="bibliografia">
                   <h1
-                    class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+                    class="mt-2 text-3xl font-bold tracking-tight text-cyan-950 sm:text-4xl"
                   >
                     Bibliografia
                   </h1>
@@ -341,7 +302,7 @@
                 </ul>
 
                 <h2
-                  class="mt-16 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mt-16 text-2xl font-bold tracking-tight text-cyan-950"
                 >
                   "Não há justiça sem Deus, nem liberdade sem virtude, nem
                   governo sem moral." — Ruy Barbosa
@@ -419,7 +380,7 @@
           >
             <!-- Formulário de contato -->
             <div>
-              <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              <h2 class="text-3xl font-extrabold text-cyan-950 sm:text-4xl">
                 Vamos falar sobre a sua causa.
               </h2>
               <p class="mt-4 text-lg leading-6 text-gray-500">
@@ -516,7 +477,7 @@
                 <div class="sm:col-span-2">
                   <button
                     type="submit"
-                    class="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-sky-700 hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-700"
                   >
                     Vamos conversar
                   </button>
@@ -584,7 +545,61 @@
     ↑
     </button>
     <script src="/bottomtop/index.js"></script>
+    
+<style>
+h1, h2, h3 {
+  @apply text-cyan-950;
+}
+  @keyframes fadeIn {
+      0% {
+          opacity: 0;
+          transform: translateY(10px);
+      }
+      100% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+/* Classe de animação */
+.area {
+  animation: fadeIn 1s ease-out forwards; /* A animação dura 1 segundo */
+}
+
+/* Inicializa a opacidade como 0 */
+.opacity-0 {
+  opacity: 0;
+}
+
+  .area-item {
+      animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .area-item:nth-child(1) {
+      animation-delay: 0s;
+  }
+
+  .area-item:nth-child(2) {
+      animation-delay: 0.1s;
+  }
+
+  .area-item:nth-child(3) {
+      animation-delay: 0.2s;
+  }
+
+  .area-item:nth-child(4) {
+      animation-delay: 0.3s;
+  }
+
+  .area-item:nth-child(5) {
+      animation-delay: 0.4s;
+  }
+
+  .area-item:nth-child(6) {
+      animation-delay: 0.5s;
+  }
   
+</style>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const menuButton = document.getElementById("menu-button");

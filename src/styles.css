@@ -11,3 +11,9 @@
     color: #f7fafc;
   }
 }
+
+h1,
+h2,
+h3 {
+  @apply text-cyan-950;
+}
