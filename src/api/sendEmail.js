@@ -1,4 +1,11 @@
-import nodemailer from "nodemailer";
+import sgMail from "@sendgrid/mail";
+import dotenv from "dotenv";
+
+// Carrega as variáveis de ambiente do arquivo .env
+dotenv.config();
+
+// Configura a chave API do SendGrid com a variável de ambiente
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -7,28 +14,26 @@ export default async function handler(req, res) {
 
   const { firstName, email, message } = req.body;
 
-  const transporter = nodemailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
+  if (!process.env.SENDGRID_API_KEY) {
+    return res.status(500).json({ error: "Configuração de e-mail inválida" });
+  }
+
+  const msg = {
+    to: "ruanmota2009@gmail.com", // Destinatário
+    from: process.env.EMAIL_USER, // Seu e-mail configurado no SendGrid
+    subject: `Nova mensagem de ${firstName}`,
+    html: `
+      <p><strong>Nome:</strong> ${firstName}</p>
+      <p><strong>E-mail:</strong> ${email}</p>
+      <p><strong>Mensagem:</strong> ${message}</p>
+    `,
+  };
 
   try {
-    await transporter.sendMail({
-      from: `"Formulário Site" <${process.env.EMAIL_USER}>`,
-      to: "ruanmota2009@gmail.com",
-      subject: `Nova mensagem de ${firstName}`,
-      html: `
-        <p><strong>Nome:</strong> ${firstName}</p>
-        <p><strong>E-mail:</strong> ${email}</p>
-        <p><strong>Mensagem:</strong> ${message}</p>
-      `,
-    });
-
+    await sgMail.send(msg); // Envia o e-mail usando o SendGrid
     res.status(200).json({ success: true });
   } catch (error) {
+    console.error("Erro ao enviar e-mail:", error);
     res.status(500).json({ error: error.message });
   }
 }
