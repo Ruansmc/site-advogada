@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 @custom-variant dark (&:where(.dark, .dark *));
-
+@layer utilities {
+  .dark {
+    @apply text-gray-100 bg-gray-900;
+  }
+}
 @media (prefers-color-scheme: dark) {
   /* Estilos para o modo escuro */
   body {
