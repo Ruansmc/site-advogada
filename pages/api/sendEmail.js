@@ -7,7 +7,6 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const { firstName, lastName, email, telefone, message } = req.body;
 
-    // Configuração do email que será enviado
     const msg = {
       to: "oseujuridico7@gmail.com", // Aqui você coloca o e-mail de destino (não a URL)
       from: "oseujuridico7@gmail.com", // Aqui o e-mail que será usado para enviar

@@ -12,9 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     this.value = value;
   });
 
-  // Validação das teclas pressionadas (permitir apenas números e teclas especiais)
   telefoneInput.addEventListener("keydown", function (event) {
-    // Teclas permitidas: números (0-9), parênteses, espaço, hífen, Backspace, Delete, Arrow keys
     const allowedKeys = [
       "Backspace",
       "Delete",
@@ -42,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Validação em tempo real para garantir que o número seja válido
   telefoneInput.addEventListener("input", function () {
     const value = this.value.replace(/\D/g, "");
     const isValid = /^[0-9]{10,11}$/.test(value); // Valida se tem 10 ou 11 dígitos
