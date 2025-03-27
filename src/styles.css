@@ -1,23 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@custom-variant dark (&:where(.dark, .dark *));
+/* Modo escuro */
 @layer utilities {
   .dark {
     @apply text-gray-100 bg-gray-900;
   }
 }
+
 @media (prefers-color-scheme: dark) {
-  /* Estilos para o modo escuro */
   body {
-    background-color: #1a202c;
-    color: #f7fafc;
+    @apply text-gray-100 bg-gray-900;
   }
 }
 
+/* Estilização de títulos */
 h1,
 h2,
 h3 {
-  @apply text-cyan-950;
+  @apply text-cyan-800; /* Substitua por uma cor disponível no Tailwind */
 }

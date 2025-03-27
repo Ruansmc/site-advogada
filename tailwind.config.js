@@ -1,32 +1,11 @@
-// tailwind.config.js
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    "./index.html",
-    "./src/**/*.{html,js,jsx,ts,tsx}", // Adicionei html para cobrir todos os templates
+    "./src/**/*.{html,js}", // Caminho para os arquivos que usam Tailwind (HTML e JS)
+    "./index.html", // Adicione seu arquivo HTML aqui, caso necessário
   ],
-  darkMode: "class", // Habilita o modo escuro via classe (para seu dark variant)
   theme: {
-    extend: {
-      // Sua extensão de tema está correta
-      scrollBehavior: {
-        smooth: "smooth",
-      },
-    },
+    extend: {},
   },
-  plugins: [
-    // Seu plugin de utilitários personalizados está correto
-    function ({ addUtilities }) {
-      const newUtilities = {
-        ".scroll-smooth": {
-          scrollBehavior: "smooth",
-        },
-        ".scroll-auto": {
-          scrollBehavior: "auto",
-        },
-      };
-      addUtilities(newUtilities);
-    },
-    // Adicionei o plugin de forms para melhor estilização de inputs
-    require("@tailwindcss/forms"),
-  ],
+  plugins: [],
 };

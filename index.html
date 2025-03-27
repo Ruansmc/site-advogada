@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Escritório de Advocacia ABC</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/dist/styles.css" rel="stylesheet">
+    <link rel="icon" href="/images/MARCA - CHIRLEI PEREIRA SANTOS 02.ico" type="image/x-icon">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script>
+    <script src="/index.js" type="module"></script>
+<script>
       document.addEventListener("DOMContentLoaded", function() {
         AOS.init({ duration: 1000, easing: "ease-out", once: true });
       });
     </script>
+
+
   </head>
 <body>
   <div class="bg-white">
@@ -322,55 +326,7 @@
         </div>
       </div>
 
-      <!-- <section
-        class="relative px-6 py-24 overflow-hidden bg-white isolate sm:py-32 lg:px-8"
-      >
-        <div
-          class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20"
-        ></div>
-        <div
-          class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"
-        ></div> -->
-       
-          <!-- <img class="h-12 mx-auto" src="" alt="Workcation Logo" /> -->
-<!-- 
-          <figure class="mt-10">
-            <blockquote
-              class="text-xl font-semibold leading-8 text-center text-gray-900 sm:text-2xl sm:leading-9"
-            >
-              <p>
-                “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                expedita voluptas culpa sapiente alias molestiae. Numquam
-                corrupti in laborum sed rerum et corporis.”
-              </p>
-            </blockquote>
-            <figcaption class="mt-10">
-              <img
-                class="w-10 h-10 mx-auto rounded-full"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-              <div
-                class="flex items-center justify-center mt-4 space-x-3 text-base"
-              >
-                <div class="font-semibold text-gray-900">Judith Black</div>
-                <svg
-                  viewBox="0 0 2 2"
-                  width="3"
-                  height="3"
-                  aria-hidden="true"
-                  class="fill-gray-900"
-                >
-                  <circle cx="1" cy="1" r="1" />
-                </svg>
-                <div class="text-gray-600">CEO of Workcation</div>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      </section> -->
-
-      <div class="py-16 bg-white sm:py-24">
+      <div class="py-16 bg-white sm:py-24 text-cyan-950">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div
             id="contato"
@@ -418,7 +374,7 @@
                       type="tel"
                       name="telefone"
                       id="telefone"
-                      class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 invalid:border-red-500"
+                      class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 "
                       placeholder="(00) 00000-0000" maxlength="11"
                       required
                       onkeydown="return event.key.match(/[0-9()\- ]|Backspace|Delete|Arrow/) !== null"
@@ -427,22 +383,23 @@
                   </div>
                 </div>
 
-                <div class="sm:col-span-2">
-                  <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
-                  <div class="mt-1">
-                    <textarea id="message" name="message" rows="4"
-                      class="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
+                <div class="flex flex-col gap-4 sm:col-span-2 sm:flex-row">
+                  <div class="flex-1">
+                    <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
+                    <div class="mt-1">
+                      <textarea id="message" name="message" rows="4"
+                        class="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                        required></textarea>
+                    </div>
+                  </div>
+                
+                  <div class="self-end flex-shrink-0">
+                    <button type="submit"
+                      class="px-6 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out transform border border-transparent rounded-md shadow-sm bg-cyan-950 hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-950 hover:text-white hover:scale-105">
+                      Vamos conversar
+                    </button>
                   </div>
                 </div>
-            
-                <div class="sm:col-span-2">
-                  <button type="submit"
-                    class="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out transform border border-transparent rounded-md shadow-sm bg-cyan-950 hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-950 hover:text-white hover:scale-105">
-                    Vamos conversar
-                  </button>
-                </div>
-              </form>
-            </div>
             
             <script>
               document.getElementById("contact-form").addEventListener("submit", async (e) => {
