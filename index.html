@@ -389,7 +389,7 @@
                 <div>
                   <label for="first-name" class="block text-sm font-medium text-gray-700">Primeiro nome</label>
                   <div class="mt-1">
-                    <input type="text" name="firstName" id="first-name" autocomplete="given-name"
+                    <input type="text" name="firstName" id="first-name" autocomplete="given-name" placeholder="Digite aqui"
                       class="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-black-500" required />
                   </div>
                 </div>
@@ -397,7 +397,7 @@
                 <div>
                   <label for="last-name" class="block text-sm font-medium text-gray-700">Último nome</label>
                   <div class="mt-1">
-                    <input type="text" name="lastName" id="last-name" autocomplete="family-name"
+                    <input type="text" name="lastName" id="last-name" autocomplete="family-name" placeholder="Digite aqui"
                       class="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required />
                   </div>
                 </div>
@@ -405,20 +405,28 @@
                 <div class="sm:col-span-2">
                   <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
                   <div class="mt-1">
-                    <input type="email" name="email" id="email"
+                    <input type="email" name="email" id="email" placeholder="teste@example.com"
                       class="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required />
                     <span id="email-error" class="hidden text-sm text-red-500">E-mail inválido!</span>
                   </div>
                 </div>
             
                 <div class="sm:col-span-2">
-                  <label for="tel" class="block text-sm font-medium text-gray-700">Telefone</label>
+                  <label for="telefone" class="block text-sm font-medium text-gray-700">Telefone</label>
                   <div class="mt-1">
-                    <input type="tel" name="tel" id="tel" maxlength="15"
-                      class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required />
+                    <input
+                      type="tel"
+                      name="telefone"
+                      id="telefone"
+                      class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 invalid:border-red-500"
+                      placeholder="(00) 00000-0000" maxlength="11"
+                      required
+                      onkeydown="return event.key.match(/[0-9()\- ]|Backspace|Delete|Arrow/) !== null"
+                    />
+                    <p id="telefone-error" class="hidden mt-1 text-sm text-red-600">Apenas números são permitidos</p>
                   </div>
                 </div>
-            
+
                 <div class="sm:col-span-2">
                   <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
                   <div class="mt-1">
@@ -483,7 +491,7 @@
                 }
               });
             </script>
-            
+
             </div>
 
             <!-- Informações adicionais ou testemunho ao lado -->
@@ -541,12 +549,11 @@
     </div>
     <button
     id="scrollTopBtn"
-    class="fixed hidden p-3 text-white transition-all duration-300 rounded-full shadow-lg bg-cyan-900 bottom-8 right-8 hover:bg-cyan-950 hover:scale-110 hover:translate-y-[-5px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-950 animate-bounce"
+    class="fixed hidden p-3 text-white transition-all duration-300 rounded-full shadow-lg bg-cyan-900 bottom-8 right-8 hover:bg-cyan-950 hover:scale-110 hover:translate-y-[-5px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-950 animate-bounce "
   >
     ↑
   </button>
     <script src="/bottomtop/index.js"></script>
-    
 <style>
 h1, h2, h3 {
   @apply text-cyan-950;
@@ -589,5 +596,8 @@ h1, h2, h3 {
   });
 </script>
 <script src="src/animation/animation.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+  <script src="/src/mask/mask.js"></script>     
+
   </body>
 </html>
