@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Escritório de Advocacia ABC</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <link href="https://project-site-advogada.vercel.app/dist/styles.css" rel="stylesheet">
-    <link rel="icon" href="https://project-site-advogada.vercel.app/images/MARCA%20-%20CHIRLEI%20PEREIRA%20SANTOS%2002.ico" type="image/x-icon">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="module" src="https://project-site-advogada.vercel.app/index.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="/dist/styles.css" rel="stylesheet">
-    <script>
+    <link href="/mask/styles.css" rel="stylesheet">
+    <link rel="icon" href="/assets/MARCA-CHIRLEI-PEREIRA-SANTOS-02.ico" type="image/x-icon">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<script>
       document.addEventListener("DOMContentLoaded", function() {
         AOS.init({ duration: 1000, easing: "ease-out", once: true });
       });
     </script>
+
 
   </head>
 <body>
@@ -72,7 +72,7 @@
 
     <div class="relative w-full min-h-screen overflow-hidden">
       <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full opacity-90">
-          <source src="assets/vecteezy_business-and-lawyers-discussing-contract-papers-with-brass_15129291.mp4" type="video/mp4">
+          <source src="/assets/vecteezy_business-and-lawyers-discussing-contract-papers-with-brass_15129291.mp4" type="video/mp4">
           Seu navegador não suporta vídeos em HTML5.
       </video>
   
@@ -370,35 +370,7 @@
                     <p id="telefone-error" class="hidden mt-1 text-sm text-red-600">Apenas números são permitidos</p>
                   </div>
                 </div>
-                <script>
-                  // Função para validar as teclas pressionadas no campo de telefone
-                  function validatePhoneKey(event) {
-                    const validKeys = /^[0-9()\- ]$/;  // Aceita números, parênteses, hífens e espaços
-                    const key = event.key;
-                
-                    // Se a tecla pressionada for válida, retorna true, caso contrário, false
-                    if (validKeys.test(key) || key === "Backspace" || key === "Delete" || key === "Arrow") {
-                      return true;
-                    }
-                
-                    // Se a tecla não for válida, retorna false e previne a ação
-                    event.preventDefault();
-                    return false;
-                  }
-                
-                  document.getElementById("contact-form").addEventListener("submit", async (e) => {
-                    e.preventDefault();
-                    
-                    const form = e.target;
-                    const button = form.querySelector('button[type="submit"]');
-                    const originalText = button.textContent;
-                
-                    // Mostra dados no console para debug (opcional)
-                    const formData = new FormData(form);
-                    const data = Object.fromEntries(formData.entries());
-                    console.log("Dados do formulário:", data);
-                  });
-                </script>
+
                 <div class="flex flex-col gap-4 sm:col-span-2 sm:flex-row">
                   <div class="flex-1">
                     <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
@@ -526,47 +498,6 @@
     ↑
   </button>
     <script src="/bottomtop/index.js"></script>
-    <script>
-      document.getElementById("contact-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const form = e.target;
-  const button = form.querySelector('button[type="submit"]');
-  const originalText = button.textContent;
-  
-  // Mostra dados no console para debug
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
-  console.log("Dados do formulário:", data);
-  
-  // Enviar dados para o servidor local
-  fetch("https://project-site-advogada.vercel.app/api/sendEmail", {
-
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      telefone: data.telefone,
-      message: data.message,
-    }),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("Dados do servidor:", data);
-    // Aqui você pode fazer o que for necessário após o envio do e-mail
-    // Exemplo: exibir mensagem de sucesso
-  })
-  .catch((error) => {
-    console.error("Erro:", error);
-    // Aqui você pode tratar o erro, como exibir uma mensagem de erro para o usuário
-  });
-});
-
-    </script>
 <style>
 h1, h2, h3 {
   @apply text-cyan-950;

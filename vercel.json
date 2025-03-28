@@ -3,20 +3,16 @@
     {
       "src": "index.html",
       "use": "@vercel/static"
-    },
-    {
-      "src": "pages/api/sendEmail.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/dist/(.*)",
-      "dest": "/dist/$1"
+      "dest": "/public/dist/$1"
     },
     {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
     }
   ]
 }
