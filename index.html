@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Escritório de Advocacia ABC</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <link href="/dist/styles.css" rel="stylesheet">
-    <link rel="icon" href="/images/MARCA - CHIRLEI PEREIRA SANTOS 02.ico" type="image/x-icon">
+    <link href="https://project-site-advogada.vercel.app/dist/styles.css" rel="stylesheet">
+    <link rel="icon" href="https://project-site-advogada.vercel.app/images/MARCA%20-%20CHIRLEI%20PEREIRA%20SANTOS%2002.ico" type="image/x-icon">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="https://project-site-advogada.vercel.app/index.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<script>
+    <script>
       document.addEventListener("DOMContentLoaded", function() {
         AOS.init({ duration: 1000, easing: "ease-out", once: true });
       });
     </script>
-
 
   </head>
 <body>
@@ -540,7 +539,8 @@
   console.log("Dados do formulário:", data);
   
   // Enviar dados para o servidor local
-  fetch("http://localhost:3000/api/sendEmail", {
+  fetch("https://project-site-advogada.vercel.app/api/sendEmail", {
+
     method: "POST",
     headers: {
       "Content-Type": "application/json",
