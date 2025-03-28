@@ -13,19 +13,19 @@
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/public/assets/$1" // Adicione '/public/' aqui
+      "dest": "/public/assets/$1"
     },
     {
       "src": "/bottomtop/(.*)",
-      "dest": "/public/bottomtop/$1" // Nova regra para o JS
+      "dest": "/public/bottomtop/$1"
     },
     {
       "src": "/src/styles.css",
-      "dest": "/src/styles.css" // Para seu CSS personalizado
+      "dest": "/src/styles.css"
     },
     {
       "src": "/dist/styles.css",
-      "dest": "/dist/styles.css" // Para o CSS gerado
+      "dest": "/dist/styles.css"
     },
     {
       "src": "/(.*)",
