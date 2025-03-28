@@ -7,16 +7,16 @@
   ],
   "routes": [
     {
-      "src": "/dist/(.*)",
-      "dest": "/$1"
-    },
-    {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
     },
     {
-      "src": "/js/(.*)",
-      "dest": "/js/$1"
+      "src": "/src/pastas/(.*)",
+      "dest": "/src/pastas/$1"
+    },
+    {
+      "src": "/public/dist/(.*)",
+      "dest": "/public/dist/$1"
     }
   ]
 }
