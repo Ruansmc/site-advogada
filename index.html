@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Escritório de Advocacia ABC</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <link href="/dist/styles.css" rel="stylesheet">
+    <link href="public/dist/styles.css" rel="stylesheet">
     <link rel="icon" href="/images/MARCA - CHIRLEI PEREIRA SANTOS 02.ico" type="image/x-icon">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="/index.js" type="module"></script>
+    <script src="/bottomtop/index.js" type="module"></script>
+    <link href="public/dist/styles.css" rel="stylesheet">
+
 <script>
       document.addEventListener("DOMContentLoaded", function() {
         AOS.init({ duration: 1000, easing: "ease-out", once: true });
@@ -34,7 +36,6 @@
             <a href="#contato" class="px-4 py-2 transition rounded text-cyan-950 nav-link hover:bg-cyan-800 hover:text-white">Contato</a>
           </div>
   
-        <!-- BOTÃO MENU MOBILE -->
         <div class="flex items-center md:hidden">
           <button id="menu-button" type="button">
             <span class="sr-only">Abrir menu principal</span>
@@ -46,7 +47,6 @@
       </div>
     </nav>
   
-     <!-- MENU MOBILE -->
      <div id="mobile-menu" class="hidden fixed top-14 left-0 w-[90%] mx-auto right-0 bg-gray-900 text-white shadow-md p-5 rounded-lg m-4 flex flex-col space-y-3">
       <a href="#saiba-mais" class="transition-all duration-300 ease-in-out hover:text-gray-300">Saiba Mais</a>
       <a href="#areas-atuacao" class="transition-all duration-300 ease-in-out hover:text-gray-300">Áreas de Atuação</a>
@@ -56,7 +56,6 @@
     </header>
   </div>
   
-      <!-- MENU MOBILE -->
       <div id="mobile-menu" class="absolute left-0 flex flex-col hidden w-full p-4 space-y-4 bg-white shadow-md top-16">
         <a href="#areas" class="mobile-link">Áreas de Atuação</a>
         <a href="#bibliografia" class="mobile-link">Bibliografia</a>
@@ -67,7 +66,6 @@
   
   <div class="relative px-6 isolate pt-14 lg:px-8">
     <section class="relative h-screen bg-gray-50">
-      <!-- Imagem de fundo -->
       <div class="absolute inset-0 w-full h-full">
         <img src="assets/PAREDE.png" class="z-0 object-cover w-full h-full" alt="Imagem de Fundo">
       </div>
@@ -75,13 +73,11 @@
 
 
     <div class="relative w-full min-h-screen overflow-hidden">
-      <!-- Vídeo de fundo -->
       <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full opacity-90">
           <source src="assets/vecteezy_business-and-lawyers-discussing-contract-papers-with-brass_15129291.mp4" type="video/mp4">
           Seu navegador não suporta vídeos em HTML5.
       </video>
   
-      <!-- Conteúdo com backdrop -->
       <div class="relative max-w-2xl py-24 mx-auto text-center sm:py-32 lg:py-40">
           <div id="saiba-mais" class="p-8 rounded-lg shadow-lg bg-white/30 backdrop-blur-md">
               <h1 class="relative z-10 text-4xl font-bold tracking-tight text-cyan-950 sm:text-6xl">
@@ -94,7 +90,6 @@
                   resultado para nossos clientes.
               </p>
   
-              <!-- Botões -->
               <div class="flex items-center justify-center mt-10 gap-x-6">
                   <button 
                       onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
@@ -328,7 +323,6 @@
             id="contato"
             class="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center"
           >
-            <!-- Formulário de contato -->
             <div>
               <h2 class="text-3xl font-extrabold text-cyan-950 sm:text-4xl">
                 Vamos falar sobre a sua causa.
@@ -370,14 +364,34 @@
                       type="tel"
                       name="telefone"
                       id="telefone"
-                      class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 "
-                      placeholder="(00) 00000-0000" maxlength="11"
+                      class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                      placeholder="(00) 00000-0000"
+                      maxlength="15"
                       required
-                      onkeydown="return event.key.match(/[0-9()\- ]|Backspace|Delete|Arrow/) !== null"
+                      oninput="formatarTelefone(event)"
                     />
                     <p id="telefone-error" class="hidden mt-1 text-sm text-red-600">Apenas números são permitidos</p>
                   </div>
                 </div>
+                
+                <script>
+                  function formatarTelefone(event) {
+                    let telefone = event.target.value;
+                
+                    // Remove caracteres não numéricos
+                    telefone = telefone.replace(/\D/g, '');
+                
+                    // Formata o telefone de acordo com a quantidade de números
+                    if (telefone.length <= 10) {
+                      telefone = telefone.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3'); // (XX) XXXX-XXXX
+                    } else {
+                      telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); // (XX) XXXXX-XXXX
+                    }
+                
+                    // Atualiza o campo com o número formatado
+                    event.target.value = telefone;
+                  }
+                </script>
 
                 <div class="flex flex-col gap-4 sm:col-span-2 sm:flex-row">
                   <div class="flex-1">
