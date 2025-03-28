@@ -8,8 +8,8 @@ export default async function handler(req, res) {
     const { firstName, lastName, email, telefone, message } = req.body;
 
     const msg = {
-      to: "oseujuridico7@gmail.com", // Aqui você coloca o e-mail de destino (não a URL)
-      from: "oseujuridico7@gmail.com", // Aqui o e-mail que será usado para enviar
+      to: "ruanmota2009@gmail.com", // Aqui você coloca o e-mail de destino (não a URL)
+      from: "ruanmota2009@gmail.com", // Aqui o e-mail que será usado para enviar
       subject: "Nova Mensagem do Formulário de Contato",
       text: `
         Nome: ${firstName} ${lastName}

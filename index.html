@@ -9,7 +9,6 @@
     <link rel="icon" href="/images/MARCA - CHIRLEI PEREIRA SANTOS 02.ico" type="image/x-icon">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="/index.js" type="module"></script>
 <script>
       document.addEventListener("DOMContentLoaded", function() {
         AOS.init({ duration: 1000, easing: "ease-out", once: true });
@@ -27,7 +26,6 @@
           <div class="flex items-center space-x-3">
             <img src="assets/MARCA - CHIRLEI PEREIRA SANTOS PNG 02.png" class="h-12" alt="Logo do Escritório">
           </div>
-          <!-- LINKS DESKTOP -->
           <div class="hidden space-x-8 md:flex">
             <a href="#saiba-mais" class="px-4 py-2 transition duration-150 rounded ease-in-ou text-cyan-950 nav-link hover:bg-cyan-800 hover:text-white">Saiba Mais</a>
             <a href="#areas-atuacao" class="px-4 py-2 transition rounded text-cyan-950 nav-link hover:bg-cyan-800 hover:text-white">Áreas de Atuação</a>
@@ -35,8 +33,6 @@
             <a href="#contato" class="px-4 py-2 transition rounded text-cyan-950 nav-link hover:bg-cyan-800 hover:text-white">Contato</a>
           </div>
   
-      
-        <!-- BOTÃO MENU MOBILE -->
         <div class="flex items-center md:hidden">
           <button id="menu-button" type="button">
             <span class="sr-only">Abrir menu principal</span>
@@ -48,7 +44,6 @@
       </div>
     </nav>
   
-     <!-- MENU MOBILE -->
      <div id="mobile-menu" class="hidden fixed top-14 left-0 w-[90%] mx-auto right-0 bg-gray-900 text-white shadow-md p-5 rounded-lg m-4 flex flex-col space-y-3">
       <a href="#saiba-mais" class="transition-all duration-300 ease-in-out hover:text-gray-300">Saiba Mais</a>
       <a href="#areas-atuacao" class="transition-all duration-300 ease-in-out hover:text-gray-300">Áreas de Atuação</a>
@@ -58,7 +53,6 @@
     </header>
   </div>
   
-      <!-- MENU MOBILE -->
       <div id="mobile-menu" class="absolute left-0 flex flex-col hidden w-full p-4 space-y-4 bg-white shadow-md top-16">
         <a href="#areas" class="mobile-link">Áreas de Atuação</a>
         <a href="#bibliografia" class="mobile-link">Bibliografia</a>
@@ -69,7 +63,6 @@
   
   <div class="relative px-6 isolate pt-14 lg:px-8">
     <section class="relative h-screen bg-gray-50">
-      <!-- Imagem de fundo -->
       <div class="absolute inset-0 w-full h-full">
         <img src="assets/PAREDE.png" class="z-0 object-cover w-full h-full" alt="Imagem de Fundo">
       </div>
@@ -77,13 +70,11 @@
 
 
     <div class="relative w-full min-h-screen overflow-hidden">
-      <!-- Vídeo de fundo -->
       <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full opacity-90">
           <source src="assets/vecteezy_business-and-lawyers-discussing-contract-papers-with-brass_15129291.mp4" type="video/mp4">
           Seu navegador não suporta vídeos em HTML5.
       </video>
   
-      <!-- Conteúdo com backdrop -->
       <div class="relative max-w-2xl py-24 mx-auto text-center sm:py-32 lg:py-40">
           <div id="saiba-mais" class="p-8 rounded-lg shadow-lg bg-white/30 backdrop-blur-md">
               <h1 class="relative z-10 text-4xl font-bold tracking-tight text-cyan-950 sm:text-6xl">
@@ -96,7 +87,6 @@
                   resultado para nossos clientes.
               </p>
   
-              <!-- Botões -->
               <div class="flex items-center justify-center mt-10 gap-x-6">
                   <button 
                       onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
@@ -330,7 +320,6 @@
             id="contato"
             class="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center"
           >
-            <!-- Formulário de contato -->
             <div>
               <h2 class="text-3xl font-extrabold text-cyan-950 sm:text-4xl">
                 Vamos falar sobre a sua causa.
@@ -375,12 +364,40 @@
                       class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 "
                       placeholder="(00) 00000-0000" maxlength="11"
                       required
-                      onkeydown="return event.key.match(/[0-9()\- ]|Backspace|Delete|Arrow/) !== null"
+                      onkeydown="return validatePhoneKey(event)"
                     />
                     <p id="telefone-error" class="hidden mt-1 text-sm text-red-600">Apenas números são permitidos</p>
                   </div>
                 </div>
-
+                <script>
+                  // Função para validar as teclas pressionadas no campo de telefone
+                  function validatePhoneKey(event) {
+                    const validKeys = /^[0-9()\- ]$/;  // Aceita números, parênteses, hífens e espaços
+                    const key = event.key;
+                
+                    // Se a tecla pressionada for válida, retorna true, caso contrário, false
+                    if (validKeys.test(key) || key === "Backspace" || key === "Delete" || key === "Arrow") {
+                      return true;
+                    }
+                
+                    // Se a tecla não for válida, retorna false e previne a ação
+                    event.preventDefault();
+                    return false;
+                  }
+                
+                  document.getElementById("contact-form").addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    
+                    const form = e.target;
+                    const button = form.querySelector('button[type="submit"]');
+                    const originalText = button.textContent;
+                
+                    // Mostra dados no console para debug (opcional)
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData.entries());
+                    console.log("Dados do formulário:", data);
+                  });
+                </script>
                 <div class="flex flex-col gap-4 sm:col-span-2 sm:flex-row">
                   <div class="flex-1">
                     <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
@@ -449,7 +466,6 @@
 
             </div>
 
-            <!-- Informações adicionais ou testemunho ao lado -->
             <div class="mt-12 lg:mt-0">
               <div
                 class="lg:flex lg:justify-center lg:items-center lg:flex-col"
@@ -509,6 +525,46 @@
     ↑
   </button>
     <script src="/bottomtop/index.js"></script>
+    <script>
+      document.getElementById("contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const button = form.querySelector('button[type="submit"]');
+  const originalText = button.textContent;
+  
+  // Mostra dados no console para debug
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+  console.log("Dados do formulário:", data);
+  
+  // Enviar dados para o servidor local
+  fetch("http://localhost:3000/api/sendEmail", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      telefone: data.telefone,
+      message: data.message,
+    }),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Dados do servidor:", data);
+    // Aqui você pode fazer o que for necessário após o envio do e-mail
+    // Exemplo: exibir mensagem de sucesso
+  })
+  .catch((error) => {
+    console.error("Erro:", error);
+    // Aqui você pode tratar o erro, como exibir uma mensagem de erro para o usuário
+  });
+});
+
+    </script>
 <style>
 h1, h2, h3 {
   @apply text-cyan-950;

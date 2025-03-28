@@ -10,3 +10,6 @@ export default {
   },
   plugins: [require("@tailwindcss/forms")],
 };
+module.exports = {
+  plugins: [require("tailwindcss"), require("autoprefixer")],
+};
