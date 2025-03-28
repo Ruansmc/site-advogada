@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./public/styles.css",
     "build": "npm run build:css"
   },
   "devDependencies": {
