@@ -1,9 +1,8 @@
-/* ./src/styles.css */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Modo escuro */
+
+/* Suas customizações */
 @layer utilities {
   .dark {
     @apply text-gray-100 bg-gray-900;
@@ -16,9 +15,24 @@
   }
 }
 
-/* Estilização de títulos */
 h1,
 h2,
 h3 {
-  @apply text-cyan-800; /* Substitua por uma cor disponível no Tailwind */
+  @apply text-cyan-800;
+}
+
+/* Suas animações */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
 }

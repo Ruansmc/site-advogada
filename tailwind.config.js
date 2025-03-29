@@ -1,10 +1,17 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./**/*.{html,js}", // Ou o que se aplica ao seu projeto
+    "./index.html",
+    "./src/**/*.js", // Ajuste se tiver outros arquivos JS
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        cyan: {
+          800: "#075985",
+          950: "#083344",
+        },
+      },
+    },
   },
   plugins: [],
 };
