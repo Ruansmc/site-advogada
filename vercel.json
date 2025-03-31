@@ -1,5 +1,14 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/assets/(.*)",
@@ -21,7 +30,6 @@
       "src": "/mask/mask.js",
       "dest": "/mask/mask.js"
     },
-
     {
       "src": "/(.*\\.(js|css))",
       "dest": "/$1"
@@ -30,7 +38,6 @@
       "src": "/(.*\\.(ico|png|jpg|jpeg|gif|svg|mp4|webp))",
       "dest": "/$1"
     },
-
     {
       "src": "/(.*)",
       "dest": "/index.html",
