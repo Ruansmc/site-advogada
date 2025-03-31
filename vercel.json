@@ -30,11 +30,5 @@
       "src": "/favicon.ico",
       "dest": "/public/assets/MARCACHIRLEI02.ico"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
   ]
 }
