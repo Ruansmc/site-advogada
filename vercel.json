@@ -1,3 +1,35 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      },
+      "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/assets/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/dist/assets/MARCACHIRLEI02.ico"
+    },
+    {
+      "src": "/styles.css",
+      "dest": "/dist/styles.css"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/index.html"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/public/assets/MARCACHIRLEI02.ico"
+    }
+  ]
 }
