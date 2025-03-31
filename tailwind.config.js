@@ -1,7 +1,7 @@
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.js", // Ajuste se tiver outros arquivos JS
+    "./index.html", // Certifique-se de que o caminho está correto
+    "./src/**/*.{html,js}", // Caso você tenha outros arquivos .html ou .js
   ],
   theme: {
     extend: {
