@@ -6,8 +6,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
-      },
-      "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+      }
     }
   ],
   "routes": [
@@ -30,6 +29,12 @@
     {
       "src": "/favicon.ico",
       "dest": "/public/assets/MARCACHIRLEI02.ico"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
