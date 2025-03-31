@@ -11,8 +11,12 @@
   ],
   "routes": [
     {
+      "src": "/styles.css",
+      "dest": "/dist/styles.css"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/dist/index.html"
+      "dest": "/dist/$1"
     }
   ]
 }
