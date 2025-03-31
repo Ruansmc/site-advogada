@@ -1,8 +1,7 @@
 {
   "scripts": {
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify"
-,
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
     "vercel-build": "npm run build",
     "start": "serve dist/"
   },
