@@ -428,30 +428,40 @@
     
  
     </div>
-
 <script>
-  document.getElementById("contact-form").addEventListener("submit", function (event) {
-    event.preventDefault();
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Evita o envio tradicional do formulário
+    
+      // Coletando os dados do formulário
+      const formData = {
+        "first-nome": document.getElementById("first-nome").value,
+        "last-name": document.getElementById("last-name").value,
+        "email": document.getElementById("email").value,
+        "tel": document.getElementById("tel").value,
+        "message": document.getElementById("message").value
+      };
+    
+      // Enviando os dados para o endpoint com fetch
+      fetch("https://script.google.com/macros/s/AKfycbyFnfI6XyxKjiQx-WHYEzNS2BVbtLAha7MOFI_PAn_5H9Z7aHUT6g6F9lRWgmQAdGzKAw/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert("Mensagem enviada com sucesso!");
+        document.getElementById("contact-form").reset(); // Reseta o formulário
+      })
+      .catch(error => {
+        console.error("Erro ao enviar:", error);
+        alert("Ocorreu um erro. Tente novamente.");
+      });
+    });
+  </script>    
 
-    const formData = {
-      "first-name": document.getElementById("first-name").value,
-      "last-name": document.getElementById("last-name").value,
-      "email": document.getElementById("email").value,
-      "tel": document.getElementById("tel").value,
-      "message": document.getElementById("message").value
-    };
 
-    fetch("SUA_URL_WEB_APP_AQUI", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData)
-    }).then(() => {
-      alert("Mensagem enviada com sucesso!");
-      document.getElementById("contact-form").reset();
-    }).catch(error => console.error("Erro ao enviar:", error));
-  });
-</script>
        
 
     <footer class="py-12 bg-gray-900">
