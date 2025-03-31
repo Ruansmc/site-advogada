@@ -12,36 +12,19 @@
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/assets/$1"
+      "dest": "/dist/assets/$1"
     },
     {
-      "src": "/dist/styles.css",
+      "src": "/favicon.ico",
+      "dest": "/dist/assets/MARCACHIRLEI02.ico"
+    },
+    {
+      "src": "/styles.css",
       "dest": "/dist/styles.css"
     },
     {
-      "src": "/bottomtop/index.js",
-      "dest": "/bottomtop/index.js"
-    },
-    {
-      "src": "/animation/animation.js",
-      "dest": "/animation/animation.js"
-    },
-    {
-      "src": "/mask/mask.js",
-      "dest": "/mask/mask.js"
-    },
-    {
-      "src": "/(.*\\.(js|css))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*\\.(ico|png|jpg|jpeg|gif|svg|mp4|webp))",
-      "dest": "/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "status": 200
+      "dest": "/dist/index.html"
     }
   ]
 }
