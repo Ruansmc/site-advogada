@@ -1,8 +1,11 @@
 module.exports = {
   content: [
-    "./index.html", // Certifique-se de que o caminho está correto
-    "./src/**/*.{html,js}", // Caso você tenha outros arquivos .html ou .js
+    "./index.html",
+    "./src/**/*.{html,js}", // Mantém os arquivos dentro de src/
+    "./dist/**/*.html", // Inclui os arquivos gerados no build
+    "./components/**/*.{html,js}", // Caso tenha uma pasta de componentes
   ],
+  safelist: ["hidden", "border-red-500", "fade-in", "text-xl", "container"],
   theme: {
     extend: {
       colors: {

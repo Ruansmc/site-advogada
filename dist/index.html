@@ -8,14 +8,14 @@
      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   
      <link rel="shortcut icon" href="assets/MARCACHIRLEI02.ico" type="image/x-icon">
-     <link rel="stylesheet" href="/dist/styles.css">
+     <link rel="stylesheet" href="styles.css">
 
 
 <!-- JavaScript -->
-<script src="/src/mask/mask.js"></script>
+<script src="./mask/mask.js"></script>
 
 <!-- Imagens -->
-<img src="/assets/PAREDE.png">
+<img src="assets/PAREDE.png">
      <script>
        document.addEventListener("DOMContentLoaded", function() {
          AOS.init({ duration: 1000, easing: "ease-out", once: true });
@@ -30,7 +30,7 @@
  
            <!-- LOGO -->
            <div class="flex items-center space-x-3">
-             <img src="/assets/MARCACHI.png" class="h-12" alt="Logo do Escritório">
+             <img src="assets/MARCACHI.png" class="h-12" alt="Logo do Escritório">
            </div>
  
            <!-- LINKS DESKTOP -->
@@ -55,7 +55,7 @@
      </nav>
  
       <!-- MENU MOBILE -->
-      <div id="mobile-menu" class="hidden fixed top-14 left-0 w-[90%] mx-auto right-0 bg-gray-900 text-white shadow-md p-5 rounded-lg m-4 flex flex-col space-y-3">
+      <div id="mobile-menu" class="hidden fixed top-14 left-0 w-[90%] mx-auto right-0 bg-gray-900 text-white shadow-md p-5 rounded-lg m-4 flex-col space-y-3">
        <a href="#saiba-mais" class="transition-all duration-300 ease-in-out hover:text-gray-300">Saiba Mais</a>
        <a href="#areas-atuacao" class="transition-all duration-300 ease-in-out hover:text-gray-300">Áreas de Atuação</a>
        <a href="#bibliografia" class="transition-all duration-300 ease-in-out hover:text-gray-300">Bibliografia</a>
@@ -65,7 +65,7 @@
    </div>
  
        <!-- MENU MOBILE -->
-       <div id="mobile-menu" class="absolute left-0 flex flex-col hidden w-full p-4 space-y-4 bg-white shadow-md top-16">
+       <div id="mobile-menu" class="absolute left-0 flex-col hidden w-full p-4 space-y-4 bg-white shadow-md top-16">
          <a href="#areas" class="mobile-link">Áreas de Atuação</a>
          <a href="#bibliografia" class="mobile-link">Bibliografia</a>
          <a href="#contato" class="mobile-link">Contato</a>
@@ -76,7 +76,7 @@
      <div class="relative w-full min-h-screen overflow-hidden">
        <!-- Vídeo de fundo -->
        <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full opacity-90">
-           <source src="/assets/vecteez.mp4" type="video/mp4">
+           <source src="assets/vecteez.mp4" type="video/mp4">
            Seu navegador não suporta vídeos em HTML5.
        </video>
  
@@ -232,7 +232,7 @@
            >
              <img
                class="w-[40rem] rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[48rem]"
-               src="/assets/Perfil.jpg"
+               src="assets/Perfil.jpg"
                alt=""
              />
            </div>
@@ -396,7 +396,7 @@
                     <div class="flex-shrink-0">
                       <img
                         class="w-auto h-22"
-                        src="/assets/MARCACHI.png"
+                        src="assets/MARCACHI.png"
                         alt="Logotipo da Empresa"
                       />
                     </div>
@@ -427,6 +427,7 @@
     
  
     </div>
+    console.log[scriptfetch]
     <script>
       document.getElementById("contact-form").addEventListener("submit", function (event) {
         event.preventDefault(); 
@@ -441,9 +442,8 @@
         if (!emailPattern.test(formData["email"])) {
           document.getElementById("email-error").classList.remove("hidden");
           return; 
-        }
-  
-        fetch("/enviar-email", {
+        } console.log("Dados do Formulário", formData);
+        fetch("https://script.google.com/macros/s/AKfycbzMfftKL-DDuJx_YeDFHpyTEtS1vxr8_e1_YdZTL_tfg23_vMkpszBf5GeLwdkehYtPbg/exec", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -491,7 +491,7 @@
 >
   ↑
 </button>
-  <script src="/public/bottomtop/index.js"></script>
+  <script src="public/bottomtop/index.js"></script>
 
 <style>
 h1, h2, h3 {
@@ -532,6 +532,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-<script src="/src/animation/animation.js"></script>
+<script src="./animation/animation.js"></script>
 </body>
 </html>
