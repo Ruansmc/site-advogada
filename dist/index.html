@@ -439,9 +439,6 @@
     "tel": document.getElementById("tel").value,
     "message": document.getElementById("message").value,
   };
-
-  console.log("Dados do Formulário", formData);
-
   fetch("https://script.google.com/macros/s/AKfycbwtwarD40t1Ejbq-St7JwZN40kPs6KsDdAsdbWeGm06-WHVADAPNdzqn7Zr-INhk8ck2Q/exec", {  // Substitua pela URL correta
     method: "POST",
     headers: { "Content-Type": "application/json" },
