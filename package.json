@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
-    "build": "npx tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify && xcopy public dist /E /I /Y && if not exist dist\\mask mkdir dist\\mask && if not exist dist\\animation mkdir dist\\animation",
+    "build": "mkdir -p dist && npx tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify && cp -r public dist/ && mkdir -p dist/mask dist/animation",
     "start": "serve dist/"
   },
   "devDependencies": {
