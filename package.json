@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
     "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify && cp -r public dist/ && cp -r assets dist/ && mkdir -p dist/mask && cp -r src/mask/* dist/mask/ && mkdir -p dist/animation && cp -r src/animation/* dist/animation/",
-    "vercel-build": "npm run build",
+    "vercel-build": "next build",
     "start": "serve dist/"
   },
   "devDependencies": {
