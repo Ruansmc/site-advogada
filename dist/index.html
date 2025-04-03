@@ -427,10 +427,11 @@
     
  
     </div>
-    console.log[scriptfetch]
     <script>
       document.getElementById("contact-form").addEventListener("submit", function (event) {
         event.preventDefault(); 
+    
+        // Captura os dados do formulário
         const formData = {
           "first-name": document.getElementById("first-name").value,
           "last-name": document.getElementById("last-name").value,
@@ -438,33 +439,37 @@
           "tel": document.getElementById("tel").value,
           "message": document.getElementById("message").value,
         };
+    
+        // Validação do e-mail
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         if (!emailPattern.test(formData["email"])) {
           document.getElementById("email-error").classList.remove("hidden");
           return; 
-        } console.log("Dados do Formulário", formData);
-        fetch("https://script.google.com/macros/s/AKfycbzMfftKL-DDuJx_YeDFHpyTEtS1vxr8_e1_YdZTL_tfg23_vMkpszBf5GeLwdkehYtPbg/exec", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        })
-        .then(response => {
-          if (response.ok) {
-            alert("Mensagem enviada com sucesso!");
-            document.getElementById("contact-form").reset();
-          } else {
-            alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente.");
-          }
+        } else {
+          document.getElementById("email-error").classList.add("hidden"); // Esconde erro se o e-mail for válido
+        }
+    
+        console.log("Dados do Formulário", formData);
+    
+        fetch("https://script.google.com/macros/s/AKfycbyihX3NMw3Qjku5L-pHlxJyW52AMfoQNg1cUf3xftbhkdG14zwWqFFjIKqpfE3AjFoT2w/exec", {
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(formData),
+})
+        .then(response => response.json()) // Converte a resposta para JSON
+        .then(data => {
+          alert("Mensagem enviada com sucesso!");
+          document.getElementById("contact-form").reset();
         })
         .catch(error => {
           console.error("Erro ao enviar mensagem:", error);
-          alert("Ocorreu um erro. Tente novamente mais tarde.");
+          alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
         });
       });
-  </script>
-
+    </script>
     <footer class="py-12 bg-gray-900">
       <div class="px-6 mx-auto max-w-7xl lg:px-8">
         <div class="text-center text-white">
