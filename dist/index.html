@@ -321,158 +321,39 @@
          </div>
        </div>
 
-       
-       <div class="py-16 bg-white sm:py-24">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div id="contato" class="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">
-            <div>
-              <h2 class="text-3xl font-extrabold text-cyan-950 sm:text-4xl">
-                Vamos falar sobre a sua causa.
-              </h2>
-              <p class="mt-4 text-lg leading-6 text-gray-500">
-                Ajudamos empresas e indivíduos a construir seus objetivos com
-                soluções jurídicas personalizadas.
-              </p>
-              <form id="contact-form" class="grid grid-cols-1 mt-8 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
-                
-                <div>
-                  <label for="first-name" class="block text-sm font-medium text-gray-700">Primeiro nome</label>
-                  
-                  <div class="mt-1">
-                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
-                      class="block w-full px-4 py-3 text-black uppercase border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                      required />
-                  </div>
-                </div>
-      
-                <div>
-                  <label for="last-name" class="block text-sm font-medium text-gray-700">Último nome</label>
-                  <div class="mt-1">
-                    <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                      class="block w-full px-4 py-3 text-black border-black rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                      required />
-                  </div>
-                </div>
-      
-                <div class="sm:col-span-2">
-                  <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
-                  <div class="mt-1">
-                    <input type="email" name="email" id="email" autocomplete="email" required
-                    title="Digite um e-mail válido, ex: exemplo@email.com"
-                    class="block w-full px-4 py-3 text-black border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
-                    <span id="email-error" class="hidden text-sm text-red-500">E-mail inválido!</span>
-                  </div>
-                </div>
-      
-                <div class="sm:col-span-2">
-                  <label for="tel" class="block text-sm font-medium text-gray-700">Telefone</label>
-                  <div class="mt-1">
-                    <input type="number" name="tel" id="tel" autocomplete="tel"
-                    class="block w-full px-4 py-3 text-black border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                    required oninput="this.value = this.value.slice(0, 11)" />
-             
-                  
-                  </div>
-                </div>
-      
-                <div class="sm:col-span-2">
-                  <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
-                  <div class="mt-1">
-                    <textarea id="message" name="message" rows="4" autocomplete="off"
-                    class="block w-full px-4 py-3 text-black border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                    required></textarea>
-                  </div>
-                </div>   <div class="sm:col-span-2">
-                  <button type="submit" id="submit-button"
-                    class="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out transform border border-transparent rounded-md shadow-sm sm:w-auto md:w-64 lg:w-72 bg-cyan-950 hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-950 hover:text-white hover:scale-105">
-                    Vamos conversar
-                  </button>
-                </div>
-                </div>
-                <div class="mt-12 lg:mt-0">
-                  <div
-                    class="lg:flex lg:justify-center lg:items-center lg:flex-col"
-                  >
-                    <div class="flex-shrink-0">
-                      <img
-                        class="w-auto h-22"
-                        src="assets/MARCACHI.png"
-                        alt="Logotipo da Empresa"
-                      />
-                    </div>
-                    <div
-                      class="mt-6 lg:mt-8 lg:ml-6 lg:flex lg:flex-col lg:justify-between"
-                    >
-                      <blockquote class="text-lg leading-7 text-gray-500">
-                        <p>
-                          Rui Barbosa disse: "De tanto ver triunfar as nulidades, de tanto ver prosperar a desonra, de tanto ver crescer a injustiça, de tanto ver agigantarem-se os poderes nas mãos dos maus, o homem chega a desanimar da virtude, a rir-se da honra, a ter vergonha de ser honesto". 
-                        </p>
-                      </blockquote>
-                      <div class="mt-6">
-                        <p class="text-base font-medium text-gray-900">Chirley</p>
-                        <p class="text-base font-medium text-indigo-600">
-                          Advogada
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-              </form>
-            </div>
-          </div>
-      </div>
-    
  
     </div>
-  <script>
-  document.getElementById("contact-form").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const formData = new FormData();
-  formData.append("first-name", document.getElementById("first-name").value);
-  formData.append("last-name", document.getElementById("last-name").value);
-  formData.append("email", document.getElementById("email").value);
-  formData.append("tel", document.getElementById("tel").value);
-  formData.append("message", document.getElementById("message").value);
-
-  fetch("https://script.google.com/macros/s/AKfycbzSEJTH2QfUI2oXw2vXKv8SOGWXR_xaBwmNcUVm9cdeBINH-vLMd7IWpG0QA95z3lwHCQ/exec", { 
-    method: "POST",
-    body: formData,
-  })
-  .then(response => response.text()) // Alterado para texto para evitar erro de JSON
-  .then(text => {
-    console.log("Resposta do servidor:", text);
-    alert("Mensagem enviada com sucesso!");
-    document.getElementById("contact-form").reset();
-  })
-  .catch(error => {
-    console.error("Erro ao enviar mensagem:", error);
-    alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
-  });
-});
-  </script>    
-    <footer class="py-12 bg-gray-900">
-      <div class="px-6 mx-auto max-w-7xl lg:px-8">
-        <div class="text-center text-white">
-          <p class="text-sm">
-            &copy; 2024 Escritório de Advocacia ABC - Todos os direitos
-            reservados.
-          </p>
-          <p class="mt-1">
-            <a href="#" class="text-gray-400 hover:text-gray-300"
-              >Política de Privacidade</a
-            >
-            |
-            <a href="#" class="text-gray-400 hover:text-gray-300"
-              >Termos de Uso</a
-            >
-          </p>
+    
+    <footer class="py-12 text-white bg-gray-900">
+      <div class="container flex flex-col items-center px-6 mx-auto space-y-6 lg:px-8 lg:space-y-0 lg:flex-row lg:justify-between">
+        <div class="text-center lg:text-left">
+          <button 
+            onclick="window.open('https://linktr.ee/chirleypordireito?lt_utm_source=lt_share_link#247837558', '_blank')"
+            class="px-6 py-3 text-lg font-bold transition-all duration-300 transform rounded-lg shadow-md bg-cyan-500 hover:bg-cyan-400 hover:scale-105 active:scale-95">
+            Fale comigo agora<span aria-hidden="true"> →</span>
+          </button>
+        </div>
+        <div class="flex flex-col items-center space-y-4 text-center lg:items-start lg:text-left">
+          <img class="w-auto h-12 lg:h-16" src="assets/MARCAPNG012.png" alt="Logotipo da Empresa" />
+          <blockquote class="max-w-md text-sm italic leading-6 text-gray-400">
+            "De tanto ver triunfar as nulidades, de tanto ver prosperar a desonra, de tanto ver crescer a injustiça, de tanto ver agigantarem-se os poderes nas mãos dos maus, o homem chega a desanimar da virtude, a rir-se da honra, a ter vergonha de ser honesto."
+          </blockquote>
+          <div>
+            <p class="text-lg font-semibold">Chirley</p>
+            <p class="text-sm font-medium text-indigo-400">Advogada</p>
+          </div>
         </div>
       </div>
+      <div class="pt-6 mt-10 text-sm text-center text-gray-400 border-t border-gray-700">
+        <p>&copy; 2024 Escritório de Advocacia ABC - Todos os direitos reservados.</p>
+        <p class="mt-1">
+          <a href="#" class="hover:text-gray-300">Política de Privacidade</a>
+          |
+          <a href="#" class="hover:text-gray-300">Termos de Uso</a>
+        </p>
+      </div>
     </footer>
+    
   </div>
   <button
   id="scrollTopBtn"
