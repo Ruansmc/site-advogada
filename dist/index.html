@@ -428,24 +428,21 @@
  
     </div>
   <script>
-   document.getElementById("contact-form").addEventListener("submit", function (event) {
-  event.preventDefault(); 
+  document.getElementById("contact-form").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  const formData = {
-    "first-name": document.getElementById("first-name").value,
-    "last-name": document.getElementById("last-name").value,
-    "email": document.getElementById("email").value,
-    "tel": document.getElementById("tel").value,
-    "message": document.getElementById("message").value,
-  };
+  const formData = new FormData();
+  formData.append("first-name", document.getElementById("first-name").value);
+  formData.append("last-name", document.getElementById("last-name").value);
+  formData.append("email", document.getElementById("email").value);
+  formData.append("tel", document.getElementById("tel").value);
+  formData.append("message", document.getElementById("message").value);
 
-  fetch("https://script.google.com/macros/s/AKfycbwtwarD40t1Ejbq-St7JwZN40kPs6KsDdAsdbWeGm06-WHVADAPNdzqn7Zr-INhk8ck2Q/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzSEJTH2QfUI2oXw2vXKv8SOGWXR_xaBwmNcUVm9cdeBINH-vLMd7IWpG0QA95z3lwHCQ/exec", { 
     method: "POST",
-    mode: "cors",  // Adicionado para evitar bloqueios
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
+    body: formData,
   })
-  .then(response => response.text()) // Alterado para evitar erro ao interpretar resposta
+  .then(response => response.text()) // Alterado para texto para evitar erro de JSON
   .then(text => {
     console.log("Resposta do servidor:", text);
     alert("Mensagem enviada com sucesso!");
