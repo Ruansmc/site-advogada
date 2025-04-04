@@ -427,33 +427,35 @@
     
  
     </div>
-    <script>
-     document.getElementById("contact-form").addEventListener("submit", function (event) {
-  event.preventDefault(); 
-
-  const formData = {
-    "first-name": document.getElementById("first-name").value,
-    "last-name": document.getElementById("last-name").value,
-    "email": document.getElementById("email").value,
-    "tel": document.getElementById("tel").value,
-    "message": document.getElementById("message").value,
-  };
-  fetch("https://script.google.com/macros/s/AKfycbwtwarD40t1Ejbq-St7JwZN40kPs6KsDdAsdbWeGm06-WHVADAPNdzqn7Zr-INhk8ck2Q/exec", {  // Substitua pela URL correta
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
-  })
-  .then(response => response.json()) 
-  .then(data => {
-    alert("Mensagem enviada com sucesso!");
-    document.getElementById("contact-form").reset();
-  })
-  .catch(error => {
-    console.error("Erro ao enviar mensagem:", error);
-    alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
-  });
-});
-    </script>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault(); 
+    
+      const formData = {
+        "first-name": document.getElementById("first-name").value,
+        "last-name": document.getElementById("last-name").value,
+        "email": document.getElementById("email").value,
+        "tel": document.getElementById("tel").value,
+        "message": document.getElementById("message").value,
+      };
+    
+      fetch("https://script.google.com/macros/s/AKfycbwtwarD40t1Ejbq-St7JwZN40kPs6KsDdAsdbWeGm06-WHVADAPNdzqn7Zr-INhk8ck2Q/exec", {  
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.text()) // Alterado para .text() em vez de .json()
+      .then(text => {
+        console.log("Resposta do servidor:", text);
+        alert("Mensagem enviada com sucesso!");
+        document.getElementById("contact-form").reset();
+      })
+      .catch(error => {
+        console.error("Erro ao enviar mensagem:", error);
+        alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
+      });
+    });
+  </script>    
     <footer class="py-12 bg-gray-900">
       <div class="px-6 mx-auto max-w-7xl lg:px-8">
         <div class="text-center text-white">
