@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <html lang="pt-BR"  class="scroll-smooth md:scroll-auto">
+ <html lang="pt-BR"  class="scroll-smooth">
    <head>
      <meta charset="UTF-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,78 +9,102 @@
   
      <link rel="shortcut icon" href="assets/MARCACHIRLEI02.ico" type="image/x-icon">
      <link rel="stylesheet" href="styles.css">
-
-
-<!-- JavaScript -->
-<script src="./mask/mask.js"></script>
-
-<!-- Imagens -->
-<img src="assets/PAREDE.png">
-     <script>
-       document.addEventListener("DOMContentLoaded", function() {
-         AOS.init({ duration: 1000, easing: "ease-out", once: true });
-       });
+     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="./mask/mask.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    AOS.init({ duration: 1000, easing: "ease-out", once: true });
+    });
      </script>
-   </head>
- <body>
+  </head>
+   <body>
+   <img src="assets/PAREDE.png">
    <div class="bg-white">
-     <header class="absolute inset-x-0 top-0 z-50">
-       <nav class="fixed top-0 z-20 w-full bg-white border-b border-gray-200 shadow-md">
-         <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
- 
-           <!-- LOGO -->
+    <header class="z-50 w-full bg-white shadow-md">
+      <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 shadow-md">
+        <div class="flex flex-wrap items-center justify-between max-w-full p-4 mx-auto lg:max-w-4xl">
+
+      
            <div class="flex items-center space-x-3">
              <img src="assets/MARCACHI.png" class="h-12" alt="Logo do Escritório">
            </div>
- 
-           <!-- LINKS DESKTOP -->
-           <div class="hidden space-x-8 md:flex">
-             <a href="#saiba-mais" class="px-4 py-2 transition duration-150 rounded ease-in-ou text-cyan-950 nav-link hover:bg-cyan-800 hover:text-white">Saiba Mais</a>
-             <a href="#areas-atuacao" class="px-4 py-2 transition rounded text-cyan-950 nav-link hover:bg-cyan-800 hover:text-white">Áreas de Atuação</a>
-             <a href="#bibliografia" class="px-4 py-2 transition rounded text-cyan-950 nav-link hover:bg-cyan-800 hover:text-white">Bibliografia</a>
-             <a href="#contato" class="px-4 py-2 transition rounded text-cyan-950 nav-link hover:bg-cyan-800 hover:text-white">Contato</a>
-           </div>
- 
- 
-         <!-- BOTÃO MENU MOBILE -->
-         <div class="flex items-center md:hidden">
-           <button id="menu-button" type="button">
-             <span class="sr-only">Abrir menu principal</span>
-             <svg class="w-5 h-5 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-             </svg>
-           </button>
-         </div>
+           <style>
+            .nav-link-animated {
+              position: relative;
+            }
+            .nav-link-animated::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              height: 2px;
+              width: 0%;
+              background-color: currentColor;
+              transition: width 0.3s ease-in-out;
+            }
+            .nav-link-animated:hover::after {
+              width: 100%;
+            }
+          </style>
+          <div class="hidden space-x-8 md:flex">
+            <a href="#saiba-mais"
+               class="nav-link-animated px-4 py-2 font-semibold text-cyan-950 transition-all duration-300 ease-in-out hover:font-bold hover:text-black hover:scale-[1.03]" data-aos="fade-down" data-aos-delay="100">
+              Saiba Mais
+            </a>
+            <a href="#areas-atuacao"
+               class="nav-link-animated px-4 py-2 font-semibold text-cyan-950 transition-all duration-300 ease-in-out hover:font-bold hover:text-black hover:scale-[1.03] "data-aos="fade-down" data-aos-delay="40">
+              Áreas de Atuação
+            </a>
+            <a href="#bibliografia"
+               class="nav-link-animated px-4 py-2 font-semibold text-cyan-950 transition-all duration-300 ease-in-out hover:font-bold hover:text-black hover:scale-[1.03]"data-aos="fade-down" data-aos-delay="10">
+              Bibliografia
+            </a>
+          
+            <button
+              onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
+              class="rounded-md px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
+              style="background-image: linear-gradient(to right, #ffcb2f, #51400c);"data-aos="fade-down" data-aos-delay="3">
+              Entre em contato!
+            </button>
+          </div>
+          
+          <div class="flex items-center md:hidden">
+            <button id="menu-toggle" class="p-2 md:hidden">
+              <span class="sr-only">Abrir menu principal</span>
+              <svg id="menu-icon" class="w-6 h-6 text-black" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
        </div>
      </nav>
- 
-      <!-- MENU MOBILE -->
-      <div id="mobile-menu" class="hidden fixed top-14 left-0 w-[90%] mx-auto right-0 bg-gray-900 text-white shadow-md p-5 rounded-lg m-4 flex-col space-y-3">
-       <a href="#saiba-mais" class="transition-all duration-300 ease-in-out hover:text-gray-300">Saiba Mais</a>
-       <a href="#areas-atuacao" class="transition-all duration-300 ease-in-out hover:text-gray-300">Áreas de Atuação</a>
-       <a href="#bibliografia" class="transition-all duration-300 ease-in-out hover:text-gray-300">Bibliografia</a>
-       <a href="#contato" class="transition-all duration-300 ease-in-out hover:text-gray-300">Contato</a>
-     </div>
      </header>
    </div>
- 
-       <!-- MENU MOBILE -->
-       <div id="mobile-menu" class="absolute left-0 flex-col hidden w-full p-4 space-y-4 bg-white shadow-md top-16">
-         <a href="#areas" class="mobile-link">Áreas de Atuação</a>
-         <a href="#bibliografia" class="mobile-link">Bibliografia</a>
-         <a href="#contato" class="mobile-link">Contato</a>
-       </div>
-     </header>
+   
+   <div id="mobile-menu"
+   class="fixed inset-0 z-40 flex-col items-center justify-center hidden transition-all duration-300 ease-in-out bg-white bg-opacity-95 md:hidden">
+   <div class="flex flex-col items-center justify-center space-y-6 text-lg font-medium text-gray-800">
+     <a href="#saiba-mais" class="hover:text-cyan-900" onclick="closeMenu()">Saiba Mais</a>
+     <a href="#areas-atuacao" class="hover:text-cyan-900" onclick="closeMenu()">Áreas de Atuação</a>
+     <a href="#bibliografia" class="hover:text-cyan-900" onclick="closeMenu()">Bibliografia</a>
+     <button
+       onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
+       class="mt-4 rounded-md px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 ease-in-out hover:scale-105 active:scale-95"
+       style="background-image: linear-gradient(to right, #ffcb2f, #51400c);">
+       Entre em contato!
+     </button>
    </div>
+ </div>
+
  
      <div class="relative w-full min-h-screen overflow-hidden">
-       <!-- Vídeo de fundo -->
        <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full opacity-90">
            <source src="assets/vecteez.mp4" type="video/mp4">
            Seu navegador não suporta vídeos em HTML5.
        </video>
  
-       <!-- Conteúdo com backdrop -->
        <div class="relative max-w-2xl py-24 mx-auto text-center sm:py-32 lg:py-40">
            <div id="saiba-mais" class="p-8 rounded-lg shadow-lg bg-white/30 backdrop-blur-md">
                <h1 class="relative z-10 text-4xl font-bold tracking-tight text-cyan-950 sm:text-6xl">
@@ -93,7 +117,6 @@
                    resultado para nossos clientes.
                </p>
  
-               <!-- Botões -->
                <div class="flex items-center justify-center mt-10 gap-x-6">
                    <button 
                        onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
@@ -314,53 +337,63 @@
                    serviço jurídico possível. Mantemos nossos clientes sempre
                    informados, com clareza e objetividade, para que tenham plena
                    confiança em cada etapa do processo.
-                 </p>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
- 
-    </div>
-    
-    <footer class="py-12 text-white bg-gray-900">
-      <div class="container flex flex-col items-center px-6 mx-auto space-y-6 lg:px-8 lg:space-y-0 lg:flex-row lg:justify-between">
-        <div class="text-center lg:text-left">
-          <button 
-            onclick="window.open('https://linktr.ee/chirleypordireito?lt_utm_source=lt_share_link#247837558', '_blank')"
-            class="px-6 py-3 text-lg font-bold transition-all duration-300 transform rounded-lg shadow-md bg-cyan-500 hover:bg-cyan-400 hover:scale-105 active:scale-95">
-            Fale comigo agora<span aria-hidden="true"> →</span>
-          </button>
-        </div>
-        <div class="flex flex-col items-center space-y-4 text-center lg:items-start lg:text-left">
-          <img class="w-auto h-12 lg:h-16" src="assets/MARCAPNG012.png" alt="Logotipo da Empresa" />
-          <blockquote class="max-w-md text-sm italic leading-6 text-gray-400">
-            "De tanto ver triunfar as nulidades, de tanto ver prosperar a desonra, de tanto ver crescer a injustiça, de tanto ver agigantarem-se os poderes nas mãos dos maus, o homem chega a desanimar da virtude, a rir-se da honra, a ter vergonha de ser honesto."
-          </blockquote>
-          <div>
-            <p class="text-lg font-semibold">Chirley</p>
-            <p class="text-sm font-medium text-indigo-400">Advogada</p>
+                  </p>
+                </div>
+                
+                <div class="flex justify-start w-full mt-6">
+                  <button id="contact-now"
+                    onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
+                    class="flex items-center justify-center w-64 gap-2 px-6 py-3 text-base font-semibold text-white transition-all duration-300 ease-in-out rounded-md shadow-md md:w-80 lg:w-96 hover:scale-105 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
+                    style="background-image: linear-gradient(to right, #ffcb2f, #51400c);">
+                    Fale comigo agora!
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="pt-6 mt-10 text-sm text-center text-gray-400 border-t border-gray-700">
-        <p>&copy; 2024 Escritório de Advocacia ABC - Todos os direitos reservados.</p>
-        <p class="mt-1">
-          <a href="#" class="hover:text-gray-300">Política de Privacidade</a>
-          |
-          <a href="#" class="hover:text-gray-300">Termos de Uso</a>
-        </p>
-      </div>
-    </footer>
+    
+      <footer class="py-12 text-white bg-gray-900">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div class="flex flex-col items-center space-y-8 lg:flex-row lg:justify-between lg:space-y-0">
+      
+            <div class="flex flex-col items-center space-y-4 text-center lg:flex-row lg:items-start lg:space-x-8 lg:space-y-0 lg:text-left">
+              
+              <img class="w-auto h-12 lg:h-16" src="assets/MARCAPNG012.png" alt="Logotipo da Empresa" />
+      
+              <blockquote class="max-w-md text-sm italic leading-6 text-gray-400">
+                "De tanto ver triunfar as nulidades, de tanto ver prosperar a desonra, de tanto ver crescer a injustiça, de tanto ver agigantarem-se os poderes nas mãos dos maus, o homem chega a desanimar da virtude, a rir-se da honra, a ter vergonha de ser honesto."
+              </blockquote>
+      
+              <div>
+                <p class="text-lg font-semibold">Chirley</p>
+                <p class="text-sm font-medium text-indigo-400">Advogada</p>
+              </div>
+            </div>
+      
+            <div class="text-center lg:text-left">
+            </div>
+          </div>
+      
+          <div class="pt-6 mt-10 text-sm text-center text-gray-400 border-t border-gray-700">
+            <p>&copy; 2024 Escritório de Advocacia ABC - Todos os direitos reservados.</p>
+            <p class="mt-1">
+              <a href="#" class="hover:text-gray-300">Política de Privacidade</a> |
+              <a href="#" class="hover:text-gray-300">Termos de Uso</a>
+            </p>
+          </div>
+        </div>
+      </footer>
+      
     
   </div>
   <button
   id="scrollTopBtn"
   class="fixed hidden p-3 text-white transition-all duration-300 rounded-full shadow-lg bg-cyan-900 bottom-8 right-8 hover:bg-cyan-950 hover:scale-110 hover:translate-y-[-5px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-950 animate-bounce"
+  style="background-image: linear-gradient(to right, #ffcb2f, #51400c);"> ↑</button>
 >
-  ↑
-</button>
+
   <script src="public/bottomtop/index.js"></script>
 
 <style>
@@ -386,21 +419,38 @@ h1, h2, h3 {
   animation: fadeIn 1s ease-out forwards;
 }
 </style>
+<script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menuButton = document.getElementById("menu-button");
+  const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
 
-  menuButton.addEventListener("click", function () {
+  menuToggle.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
+    mobileMenu.classList.toggle("flex");
   });
 
-  document.addEventListener("click", function (event) {
-    if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
-      mobileMenu.classList.add("hidden");
+  function closeMenu() {
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("flex");
+  }
+</script>
+
+
+
+<script>
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.remove("hidden");
+    } else {
+      scrollTopBtn.classList.add("hidden");
     }
   });
-});
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 </script>
 <script src="./animation/animation.js"></script>
 </body>
