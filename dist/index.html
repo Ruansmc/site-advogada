@@ -1,461 +1,1300 @@
-<!DOCTYPE html>
- <html lang="pt-BR"  class="scroll-smooth">
-   <head>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>Escritório de Advocacia CPS</title>
-     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  
-     <link rel="shortcut icon" href="assets/MARCACHIRLEI02.ico" type="image/x-icon">
-     <link rel="stylesheet" href="styles.css">
-     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="./mask/mask.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    AOS.init({ duration: 1000, easing: "ease-out", once: true });
-    });
-     </script>
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CPS Advocacia & Consultoria — Chirley Pordireito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #c9a84c;
+        --gold-light: #e8c97a;
+        --gold-dark: #8b6914;
+        --ink: #0d1b2a;
+        --ink-soft: #1e2f3e;
+        --parchment: #f9f5ee;
+        --warm-white: #fdfaf5;
+        --gray-muted: #8a9099;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--warm-white);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      /* ── TYPOGRAPHY ── */
+      .serif {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 4rem;
+        background: rgba(253, 250, 245, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(201, 168, 76, 0.18);
+        transition: all 0.3s;
+      }
+
+      nav.scrolled {
+        padding: 0.9rem 4rem;
+        box-shadow: 0 4px 30px rgba(13, 27, 42, 0.08);
+      }
+
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: 0.05em;
+        text-decoration: none;
+      }
+
+      .nav-logo span {
+        color: var(--gold);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.25s;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold-dark);
+      }
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .btn-gold {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.65rem 1.6rem;
+        background: var(--gold);
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.25s;
+      }
+
+      .btn-gold:hover {
+        background: var(--gold-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(201, 168, 76, 0.35);
+      }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.65rem 1.6rem;
+        background: transparent;
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: 1px solid var(--ink);
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.25s;
+      }
+      .btn-outline:hover {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      /* hamburger */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--ink);
+        transition: all 0.3s;
+      }
+
+      /* mobile menu */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: var(--warm-white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        font-weight: 500;
+        color: var(--ink);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .mobile-menu a:hover {
+        color: var(--gold);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: var(--ink);
+      }
+
+      .hero-bg-img {
+        position: absolute;
+        inset: 0;
+        background: url("assets/PAREDE.png") center/cover no-repeat;
+        opacity: 0.18;
+      }
+
+      .hero-noise {
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");
+        opacity: 0.4;
+      }
+
+      .hero-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(201, 168, 76, 0.4),
+          transparent
+        );
+      }
+      .hero-line.l1 {
+        left: 20%;
+      }
+      .hero-line.l2 {
+        left: 80%;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 8rem 2rem 5rem;
+        text-align: center;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 2rem;
+      }
+      .hero-eyebrow::before,
+      .hero-eyebrow::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      .hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.08;
+        color: #fff;
+        margin-bottom: 1.5rem;
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 580px;
+        margin: 0 auto 3rem;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      /* scroll indicator */
+      .scroll-hint {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+      .scroll-arrow {
+        width: 1px;
+        height: 48px;
+        background: linear-gradient(
+          to bottom,
+          rgba(201, 168, 76, 0.6),
+          transparent
+        );
+        animation: scrollPulse 1.8s ease-in-out infinite;
+      }
+      @keyframes scrollPulse {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+        50% {
+          opacity: 1;
+          transform: scaleY(1.1);
+          transform-origin: top;
+        }
+      }
+
+      /* ── DIVIDER ── */
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin: 0 auto;
+        max-width: 200px;
+      }
+      .divider-line {
+        flex: 1;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.4;
+      }
+      .divider-diamond {
+        width: 8px;
+        height: 8px;
+        background: var(--gold);
+        transform: rotate(45deg);
+        flex-shrink: 0;
+      }
+
+      /* ── SECTION SHARED ── */
+      section {
+        padding: 7rem 2rem;
+      }
+      .section-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--ink);
+      }
+
+      /* ── INTRO STRIP ── */
+      .intro-strip {
+        background: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        padding: 3rem 4rem;
+        flex-wrap: wrap;
+      }
+      .stat {
+        text-align: center;
+      }
+      .stat-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-top: 0.3rem;
+      }
+      .stat-sep {
+        width: 1px;
+        height: 60px;
+        background: rgba(201, 168, 76, 0.25);
+      }
+
+      /* ── ABOUT ── */
+      .about-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+      }
+      .about-img-wrap {
+        position: relative;
+      }
+      .about-img-wrap img {
+        width: 100%;
+        display: block;
+        filter: grayscale(20%) contrast(1.05);
+      }
+      .about-img-frame {
+        position: absolute;
+        top: -16px;
+        left: -16px;
+        right: 16px;
+        bottom: 16px;
+        border: 1px solid var(--gold);
+        opacity: 0.4;
+        pointer-events: none;
+      }
+      .about-img-tag {
+        position: absolute;
+        bottom: -1rem;
+        right: -1.5rem;
+        background: var(--gold);
+        color: #fff;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .about-text {
+      }
+      .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.9;
+        color: #4a5568;
+        margin-bottom: 1.5rem;
+      }
+      .about-quote {
+        border-left: 2px solid var(--gold);
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        font-style: italic;
+        color: var(--ink);
+        line-height: 1.5;
+      }
+      .about-quote cite {
+        display: block;
+        font-size: 0.75rem;
+        font-style: normal;
+        color: var(--gold);
+        margin-top: 0.5rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .credentials {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .cred-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        background: var(--parchment);
+        border-left: 3px solid var(--gold);
+      }
+      .cred-icon {
+        color: var(--gold);
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+      }
+      .cred-text {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        color: #4a5568;
+      }
+      .cred-text strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      /* ── AREAS ── */
+      .areas-section {
+        background: var(--parchment);
+      }
+      .areas-grid {
+        max-width: 1100px;
+        margin: 4rem auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5px;
+        background: rgba(201, 168, 76, 0.15);
+      }
+      .area-card {
+        background: var(--warm-white);
+        padding: 3rem 2.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.35s;
+        cursor: default;
+      }
+      .area-card::before {
+        content: attr(data-num);
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 4rem;
+        font-weight: 700;
+        color: var(--gold);
+        opacity: 0.08;
+        line-height: 1;
+        transition: opacity 0.35s;
+      }
+      .area-card:hover {
+        background: var(--ink);
+      }
+      .area-card:hover::before {
+        opacity: 0.15;
+        color: var(--gold-light);
+      }
+      .area-card:hover .area-title {
+        color: #fff;
+      }
+      .area-card:hover .area-desc {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .area-card:hover .area-icon {
+        color: var(--gold);
+      }
+      .area-card:hover .area-line {
+        background: var(--gold);
+      }
+
+      .area-icon {
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+        color: var(--gold);
+      }
+      .area-line {
+        width: 32px;
+        height: 2px;
+        background: var(--gold);
+        margin-bottom: 1.2rem;
+        transition: background 0.35s;
+      }
+      .area-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.75rem;
+        transition: color 0.35s;
+      }
+      .area-desc {
+        font-size: 0.85rem;
+        line-height: 1.75;
+        color: var(--gray-muted);
+        transition: color 0.35s;
+      }
+
+      /* ── VALUES ── */
+      .values-section {
+        background: var(--ink);
+      }
+      .values-section .section-title {
+        color: #fff;
+      }
+      .values-section .section-label {
+      }
+      .values-grid {
+        max-width: 1000px;
+        margin: 4rem auto 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+      }
+      .value-item {
+      }
+      .value-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1rem;
+        color: var(--gold);
+        letter-spacing: 0.15em;
+        margin-bottom: 0.75rem;
+      }
+      .value-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .value-desc {
+        font-size: 0.87rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ── CTA BAND ── */
+      .cta-band {
+        background: var(--gold);
+        padding: 5rem 2rem;
+        text-align: center;
+      }
+      .cta-band h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+        color: var(--ink);
+        margin-bottom: 1rem;
+      }
+      .cta-band p {
+        color: rgba(13, 27, 42, 0.7);
+        margin-bottom: 2.5rem;
+        font-size: 0.95rem;
+      }
+      .btn-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.9rem 2.5rem;
+        background: var(--ink);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.25s;
+      }
+      .btn-dark:hover {
+        background: var(--ink-soft);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(13, 27, 42, 0.3);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #070f18;
+        padding: 4rem 2rem 2rem;
+      }
+      .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .footer-brand {
+      }
+      .footer-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        color: #fff;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      .footer-logo span {
+        color: var(--gold);
+      }
+      .footer-tagline {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.35);
+        line-height: 1.8;
+        max-width: 260px;
+      }
+      .footer-col h4 {
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.2rem;
+      }
+      .footer-col a,
+      .footer-col p {
+        display: block;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        margin-bottom: 0.6rem;
+        transition: color 0.2s;
+      }
+      .footer-col a:hover {
+        color: var(--gold-light);
+      }
+      .footer-bottom {
+        max-width: 1100px;
+        margin: 1.5rem auto 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.2);
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-bottom a {
+        color: rgba(255, 255, 255, 0.3);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        color: var(--gold);
+      }
+
+      /* ── SCROLL TOP ── */
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 200;
+        width: 44px;
+        height: 44px;
+        background: var(--gold);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transition: all 0.25s;
+      }
+      #scrollTopBtn:hover {
+        background: var(--gold-dark);
+        transform: translateY(-3px);
+      }
+      #scrollTopBtn.visible {
+        display: flex;
+      }
+
+      /* ── WHATSAPP FLOAT ── */
+      .wa-float {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        z-index: 200;
+        width: 52px;
+        height: 52px;
+        background: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+        text-decoration: none;
+        transition: all 0.25s;
+        animation: waPulse 2.5s ease-in-out infinite;
+      }
+      .wa-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+      }
+      @keyframes waPulse {
+        0%,
+        100% {
+          box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+        }
+        50% {
+          box-shadow: 0 4px 32px rgba(37, 211, 102, 0.7);
+        }
+      }
+      .wa-float svg {
+        width: 28px;
+        height: 28px;
+        fill: #fff;
+      }
+
+      /* ── ANIMATIONS ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(30px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        nav {
+          padding: 1rem 1.5rem;
+        }
+        nav.scrolled {
+          padding: 0.8rem 1.5rem;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .about-img-tag {
+          right: 0;
+          bottom: -0.5rem;
+        }
+        .areas-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .values-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .footer-inner {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .intro-strip {
+          gap: 2rem;
+        }
+        .stat-sep {
+          display: none;
+        }
+        .hero-content {
+          padding: 7rem 1.5rem 4rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .areas-grid {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 5rem 1.5rem;
+        }
+      }
+    </style>
   </head>
-   <body>
-    <div class="w-full">
-      <img 
-        src="assets/PAREDE.png" 
-        alt="Imagem do escritório" 
-        class="object-cover object-center w-full h-screen" />
+  <body>
+    <!-- NAV -->
+    <nav id="navbar">
+      <a href="#" class="nav-logo">CPS<span>.</span></a>
+      <div class="nav-links">
+        <a href="#saiba-mais">O Escritório</a>
+        <a href="#areas-atuacao">Atuação</a>
+        <a href="#bibliografia">Advogada</a>
+        <a
+          href="https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0"
+          target="_blank"
+          class="btn-gold"
+          >Consulta Jurídica</a
+        >
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#saiba-mais" onclick="toggleMenu()">O Escritório</a>
+      <a href="#areas-atuacao" onclick="toggleMenu()">Áreas de Atuação</a>
+      <a href="#bibliografia" onclick="toggleMenu()">A Advogada</a>
+      <a
+        href="https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0"
+        target="_blank"
+        class="btn-gold"
+        onclick="toggleMenu()"
+        >Consulta Jurídica</a
+      >
     </div>
-    
-   <div class="bg-white">
-    <header class="z-50 w-full bg-white shadow-md">
-      <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 shadow-md">
-        <div class="flex flex-wrap items-center justify-between max-w-full p-4 mx-auto lg:max-w-4xl">
 
-      
-           <div class="flex items-center space-x-3">
-             <img src="assets/MARCACHI.png" class="h-12" alt="Logo do Escritório">
-           </div>
-           <style>
-            .nav-link-animated {
-              position: relative;
-            }
-            .nav-link-animated::after {
-              content: "";
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              height: 2px;
-              width: 0%;
-              background-color: currentColor;
-              transition: width 0.3s ease-in-out;
-            }
-            .nav-link-animated:hover::after {
-              width: 100%;
-            }
-          </style>
-          <div class="hidden space-x-8 md:flex">
-            <a href="#saiba-mais"
-               class="nav-link-animated px-4 py-2 font-semibold text-cyan-950 transition-all duration-300 ease-in-out hover:font-bold hover:text-black hover:scale-[1.03]" data-aos="fade-down" data-aos-delay="100">
-              Saiba Mais
-            </a>
-            <a href="#areas-atuacao"
-               class="nav-link-animated px-4 py-2 font-semibold text-cyan-950 transition-all duration-300 ease-in-out hover:font-bold hover:text-black hover:scale-[1.03] "data-aos="fade-down" data-aos-delay="40">
-              Áreas de Atuação
-            </a>
-            <a href="#bibliografia"
-               class="nav-link-animated px-4 py-2 font-semibold text-cyan-950 transition-all duration-300 ease-in-out hover:font-bold hover:text-black hover:scale-[1.03]"data-aos="fade-down" data-aos-delay="10">
-              Bibliografia
-            </a>
-          
-            <button
-              onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
-              class="rounded-md px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
-              style="background-image: linear-gradient(to right, #ffcb2f, #51400c);"data-aos="fade-down" data-aos-delay="3">
-              Entre em contato!
-            </button>
-          </div>
-          
-          <div class="flex items-center md:hidden">
-            <button id="menu-toggle" class="p-2 md:hidden">
-              <span class="sr-only">Abrir menu principal</span>
-              <svg id="menu-icon" class="w-6 h-6 text-black" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-       </div>
-     </nav>
-     </header>
-   </div>
-   
-   <div id="mobile-menu"
-   class="fixed inset-0 z-40 flex-col items-center justify-center hidden transition-all duration-300 ease-in-out bg-white bg-opacity-95 md:hidden">
-   <div class="flex flex-col items-center justify-center space-y-6 text-lg font-medium text-gray-800">
-     <a href="#saiba-mais" class="hover:text-cyan-900" onclick="closeMenu()">Saiba Mais</a>
-     <a href="#areas-atuacao" class="hover:text-cyan-900" onclick="closeMenu()">Áreas de Atuação</a>
-     <a href="#bibliografia" class="hover:text-cyan-900" onclick="closeMenu()">Bibliografia</a>
-     <button
-       onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
-       class="mt-4 rounded-md px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 ease-in-out hover:scale-105 active:scale-95"
-       style="background-image: linear-gradient(to right, #ffcb2f, #51400c);">
-       Entre em contato!
-     </button>
-   </div>
- </div>
-
- 
-     <div class="relative w-full min-h-screen overflow-hidden">
-       <video autoplay loop muted playsinline class="absolute top-0 left-0 object-cover w-full h-full opacity-90">
-           <source src="assets/vecteez.mp4" type="video/mp4">
-           Seu navegador não suporta vídeos em HTML5.
-       </video>
- 
-       <div class="relative max-w-2xl py-24 mx-auto text-center sm:py-32 lg:py-40">
-           <div id="saiba-mais" class="p-8 rounded-lg shadow-lg bg-white/30 backdrop-blur-md">
-               <h1 class="relative z-10 text-4xl font-bold tracking-tight text-cyan-950 sm:text-6xl">
-                   Protegendo seus Direitos com Excelência e Dedicação
-               </h1>
- 
-               <p class="relative z-10 mt-6 text-lg leading-8 text-white">
-                   O Escritório de Advocacia CPS está comprometido em oferecer soluções jurídicas eficientes e personalizadas.
-                   Com uma equipe experiente, atuamos nas principais áreas do Direito, sempre focados em garantir o melhor
-                   resultado para nossos clientes.
-               </p>
- 
-               <div class="flex items-center justify-center mt-10 gap-x-6">
-                   <button 
-                       onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
-                       class="rounded-md bg-cyan-950 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm 
-                              transition-all duration-300 ease-in-out 
-                              hover:bg-cyan-800 hover:scale-105 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600">
-                       Agende uma Consulta
-                   </button>
- 
-                   <button 
-                       onclick="window.open('https://linktr.ee/chirleypordireito?lt_utm_source=lt_share_link#247837558', '_blank')"
-                       class="text-sm font-semibold leading-6 transition-all duration-300 ease-in-out text-cyan-950 hover:text-white hover:scale-105 active:scale-95">
-                       Saiba Mais<span aria-hidden="true"> →</span>
-                   </button>
-               </div>
-           </div>
-       </div>
-   </div>
- 
-       <section id="areas-atuacao" class="py-24 bg-gray-50">
-         <div class="px-6 mx-auto max-w-7xl lg:px-8">
-             <div class="text-center transform translate-y-10 opacity-0 area item">
-                 <h2 class="text-3xl font-bold tracking-tight text-cyan-950 sm:text-4xl">
-                     Áreas de Atuação
-                 </h2>
-                 <p class="mt-4 text-lg leading-8 text-gray-600">
-                     Oferecemos assessoria jurídica especializada em diversas áreas.
-                 </p>
-             </div>
-             <div class="grid grid-cols-1 mt-10 gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
-                 <div class="text-center transform translate-y-10 opacity-0 area-item">
-                     <h3 class="text-lg font-semibold text-gray-900">Direito Civil</h3>
-                     <p class="mt-2 text-base text-gray-600">
-                         Defesa de interesses patrimoniais e pessoais em contratos, propriedade, sucessões e muito mais.
-                     </p>
-                 </div>
- 
-                 <div class="text-center transform translate-y-10 opacity-0 area-item">
-                     <h3 class="text-lg font-semibold text-gray-900">Direito Penal</h3>
-                     <p class="mt-2 text-base text-gray-600">
-                         Atuação em processos criminais com a experiência e técnica que a defesa exige.
-                     </p>
-                 </div>
- 
-                 <div class="text-center transform translate-y-10 opacity-0 area-item">
-                     <h3 class="text-lg font-semibold text-gray-900">Direito Trabalhista</h3>
-                     <p class="mt-2 text-base text-gray-600">
-                         Consultoria e advocacia em causas trabalhistas, resguardando os direitos dos trabalhadores e empregadores.
-                     </p>
-                 </div>
- 
-                 <div class="text-center transform translate-y-10 opacity-0 area-item">
-                     <h3 class="text-lg font-semibold text-gray-900">Direito Empresarial</h3>
-                     <p class="mt-2 text-base text-gray-600">
-                         Assessoria jurídica para empresas, incluindo constituição, contratos, fusões e aquisições.
-                     </p>
-                 </div>
- 
-                 <div class="text-center transform translate-y-10 opacity-0 area-item">
-                     <h3 class="text-lg font-semibold text-gray-900">Direito Tributário</h3>
-                     <p class="mt-2 text-base text-gray-600">
-                         Consultoria em planejamento tributário e defesa em processos administrativos e judiciais.
-                     </p>
-                 </div>
- 
-                 <div class="text-center transform translate-y-10 opacity-0 area-item">
-                     <h3 class="text-lg font-semibold text-gray-900">Direito de Família</h3>
-                     <p class="mt-2 text-base text-gray-600">
-                         Resolução de conflitos familiares com sensibilidade e foco na melhor solução para todas as partes envolvidas.
-                     </p>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-       <div
-         class="relative px-6 py-24 overflow-hidden bg-white isolate sm:py-32 lg:overflow-visible lg:px-0"
-       >
-         <div class="absolute inset-0 overflow-hidden -z-10">
-           <svg
-             class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
-             aria-hidden="true"
-           >
-             <defs>
-               <pattern
-                 id="e813992c-7d03-4cc4-a2bd-151760b470a0"
-                 width="200"
-                 height="200"
-                 x="50%"
-                 y="-1"
-                 patternUnits="userSpaceOnUse"
-               >
-                 <path d="M100 200V.5M.5 .5H200" fill="none" />
-               </pattern>
-             </defs>
-             <svg x="50%" y="-1" class="overflow-visible fill-gray-50">
-               <path
-                 d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-                 stroke-width="0"
-               />
-             </svg>
-             <rect
-               width="100%"
-               height="100%"
-               stroke-width="0"
-               fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
-             />
-           </svg>
-         </div>
-         <div
-           class="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
-         >
-           <div
-             class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-           >
-             <div class="lg:pr-4">
-               <div class="lg:max-w-lg">
-                 <p class="text-base font-semibold leading-7 text-cyan-950">
-                   Um pouco sobre mim
-                 </p>
-                 <div id="bibliografia">
-                   <h1
-                     class="mt-2 text-3xl font-bold tracking-tight text-cyan-950 sm:text-4xl"
-                   >
-                     Bibliografia
-                   </h1>
-                 </div>
-                 <p class="mt-6 text-xl leading-8 text-gray-700">
-                   Bacharela em direito desde julho/2020.
-                 </p>
-               </div>
-             </div>
-           </div>
-           <div
-             class="p-12 -mt-12 -ml-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
-           >
-             <img
-               class="w-[40rem] rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[48rem]"
-               src="assets/Perfil.jpg"
-               alt=""
-             />
-           </div>
-           <div
-             class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-           >
-             <div class="lg:pr-4">
-               <div
-                 class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg"
-               >
-                 <p>
-                   Ela teve a oportunidade de se desenvolver profissionalmente
-                   logo no início da graduação.
-                 </p>
-                 <ul class="mt-8 space-y-8 text-gray-600">
-                   <li class="flex gap-x-3">
-                     <svg
-                       class="flex-none w-5 h-5 mt-1 text-indigo-600"
-                       viewBox="0 0 20 20"
-                       fill="currentColor"
-                       aria-hidden="true"
-                       data-slot="icon"
-                     >
-                       <path
-                         fill-rule="evenodd"
-                         d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z"
-                         clip-rule="evenodd"
-                       />
-                     </svg>
-                     <span
-                       ><strong class="font-semibold text-gray-900"
-                         >São sete anos de experiência em escritório de
-                         contencioso de massa, tanto na condição de assistente
-                         jurídico como também de advogada.</strong
-                       >.</span
-                     >
-                   </li>
-                   <li class="flex gap-x-3">
-                     <svg
-                       class="flex-none w-5 h-5 mt-1 text-indigo-600"
-                       viewBox="0 0 20 20"
-                       fill="currentColor"
-                       aria-hidden="true"
-                       data-slot="icon"
-                     >
-                       <path
-                         fill-rule="evenodd"
-                         d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z"
-                         clip-rule="evenodd"
-                       />
-                     </svg>
-                     <span
-                       ><strong class="font-semibold text-gray-900">
-                         Mais dois anos de experiência junto ao Tribunal de
-                         Justiça do Estado da Bahia. A soma dos ensinamentos
-                         teóricos e práticos, do setor público e privado,
-                         contribuem com a construção e consolidação da prestação
-                         de serviços jurídicos empenhada pelo CPS Advocacia e
-                         Consultoria, com atuação em Direito Civil, Direito do
-                         Consumidor e Direito Previdenciário.</strong
-                       ></span
-                     >
-                   </li>
-                 </ul>
- 
-                 <h2
-                   class="mt-16 text-2xl font-bold tracking-tight text-cyan-950"
-                 >
-                   "Não há justiça sem Deus, nem liberdade sem virtude, nem
-                   governo sem moral." — Ruy Barbosa
-                 </h2>
-                 <p class="mt-6">
-                   Agimos com transparência e honestidade em todas as nossas
-                   relações e decisões, sempre pautados pelo rigor ético.
-                   Defendemos com empenho os direitos dos nossos clientes,
-                   através de soluções justas e eficazes, respeitando as
-                   necessidades individuais. Buscando sempre o mais alto nível de
-                   competência jurídica para oferecer a melhor prestação de
-                   serviço jurídico possível. Mantemos nossos clientes sempre
-                   informados, com clareza e objetividade, para que tenham plena
-                   confiança em cada etapa do processo.
-                  </p>
-                </div>
-                
-                <div class="flex justify-start w-full mt-6">
-                  <button id="contact-now"
-                    onclick="window.open('https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0', '_blank')"
-                    class="flex items-center justify-center w-64 gap-2 px-6 py-3 text-base font-semibold text-white transition-all duration-300 ease-in-out rounded-md shadow-md md:w-80 lg:w-96 hover:scale-105 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
-                    style="background-image: linear-gradient(to right, #ffcb2f, #51400c);">
-                    Fale comigo agora!
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- HERO -->
+    <section class="hero" id="saiba-mais">
+      <div class="hero-bg-img"></div>
+      <div class="hero-noise"></div>
+      <div class="hero-line l1"></div>
+      <div class="hero-line l2"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">CPS Advocacia & Consultoria</div>
+        <h1 class="hero-title">
+          Protegendo seus Direitos<br />com <em>Excelência</em><br />e Dedicação
+        </h1>
+        <p class="hero-subtitle">
+          Soluções jurídicas personalizadas, fundamentadas em anos de
+          experiência nos setores público e privado. Seu direito, nossa missão.
+        </p>
+        <div class="hero-cta">
+          <a
+            href="https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0"
+            target="_blank"
+            class="btn-gold"
+            >Agendar Consulta</a
+          >
+          <a
+            href="#areas-atuacao"
+            class="btn-outline"
+            style="border-color: rgba(255, 255, 255, 0.3); color: #fff"
+            >Ver Atuação →</a
+          >
         </div>
       </div>
-    
-      <footer class="py-12 text-white bg-gray-900">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div class="flex flex-col items-center space-y-8 lg:flex-row lg:justify-between lg:space-y-0">
-      
-            <div class="flex flex-col items-center space-y-4 text-center lg:flex-row lg:items-start lg:space-x-8 lg:space-y-0 lg:text-left">
-              
-              <img class="w-auto h-12 lg:h-16" src="assets/MARCAPNG012.png" alt="Logotipo da Empresa" />
-      
-              <blockquote class="max-w-md text-sm italic leading-6 text-gray-400">
-                "De tanto ver triunfar as nulidades, de tanto ver prosperar a desonra, de tanto ver crescer a injustiça, de tanto ver agigantarem-se os poderes nas mãos dos maus, o homem chega a desanimar da virtude, a rir-se da honra, a ter vergonha de ser honesto."
-              </blockquote>
-      
-              <div>
-                <p class="text-lg font-semibold">Chirley</p>
-                <p class="text-sm font-medium text-indigo-400">Advogada</p>
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <div class="intro-strip">
+      <div class="stat reveal">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Anos de Experiência</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat reveal">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Áreas Principais</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat reveal">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Setores Público & Privado</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat reveal">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Compromisso Ético</div>
+      </div>
+    </div>
+
+    <!-- AREAS -->
+    <section class="areas-section" id="areas-atuacao">
+      <div style="max-width: 1100px; margin: 0 auto; text-align: center">
+        <p class="section-label reveal">Especialidades</p>
+        <h2 class="section-title reveal" style="margin-bottom: 0.75rem">
+          Áreas de Atuação
+        </h2>
+        <p
+          class="reveal"
+          style="
+            color: var(--gray-muted);
+            max-width: 480px;
+            margin: 0.75rem auto 0;
+            font-size: 0.92rem;
+            line-height: 1.8;
+          "
+        >
+          Assessoria jurídica especializada nas principais áreas do Direito, com
+          enfoque em Civil, Consumidor e Previdenciário.
+        </p>
+      </div>
+
+      <div class="areas-grid">
+        <div class="area-card reveal" data-num="01">
+          <div class="area-icon">⚖️</div>
+          <div class="area-line"></div>
+          <div class="area-title">Direito Civil</div>
+          <p class="area-desc">
+            Defesa de interesses patrimoniais e pessoais em contratos,
+            propriedade, sucessões e responsabilidade civil.
+          </p>
+        </div>
+        <div class="area-card reveal" data-num="02">
+          <div class="area-icon">🛡️</div>
+          <div class="area-line"></div>
+          <div class="area-title">Direito do Consumidor</div>
+          <p class="area-desc">
+            Proteção dos direitos dos consumidores em relações de consumo,
+            indenizações e conflitos com fornecedores.
+          </p>
+        </div>
+        <div class="area-card reveal" data-num="03">
+          <div class="area-icon">🏛️</div>
+          <div class="area-line"></div>
+          <div class="area-title">Direito Previdenciário</div>
+          <p class="area-desc">
+            Aposentadorias, benefícios por incapacidade, pensões e revisão de
+            benefícios junto ao INSS.
+          </p>
+        </div>
+        <div class="area-card reveal" data-num="04">
+          <div class="area-icon">👨‍👩‍👧</div>
+          <div class="area-line"></div>
+          <div class="area-title">Direito de Família</div>
+          <p class="area-desc">
+            Divórcio, guarda, alimentos e inventários — resolvidos com
+            sensibilidade e foco no bem-estar de todos.
+          </p>
+        </div>
+        <div class="area-card reveal" data-num="05">
+          <div class="area-icon">📋</div>
+          <div class="area-line"></div>
+          <div class="area-title">Direito Trabalhista</div>
+          <p class="area-desc">
+            Consultoria e advocacia em causas trabalhistas, resguardando os
+            direitos dos trabalhadores e empregadores.
+          </p>
+        </div>
+        <div class="area-card reveal" data-num="06">
+          <div class="area-icon">🏢</div>
+          <div class="area-line"></div>
+          <div class="area-title">Direito Empresarial</div>
+          <p class="area-desc">
+            Assessoria para empresas: constituição, contratos comerciais,
+            fusões, aquisições e compliance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section style="background: var(--warm-white)" id="bibliografia">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal-left">
+          <div class="about-img-frame"></div>
+          <img src="assets/Perfil.jpg" alt="Chirley Pordireito — Advogada" />
+          <div class="about-img-tag">OAB/BA · Advogada</div>
+        </div>
+        <div class="about-text reveal-right">
+          <p class="section-label">A Advogada</p>
+          <h2 class="section-title" style="margin-bottom: 1.5rem">
+            Chirley<br />Pordireito
+          </h2>
+          <p>
+            Bacharela em Direito desde julho de 2020, Chirley construiu sua
+            trajetória profissional aliando experiência no setor privado ao
+            aprendizado no setor público.
+          </p>
+
+          <div class="credentials">
+            <div class="cred-item">
+              <div class="cred-icon">◈</div>
+              <div class="cred-text">
+                <strong>7 anos de experiência</strong> em escritório de
+                contencioso de massa, como assistente jurídica e advogada.
               </div>
             </div>
-      
-            <div class="text-center lg:text-left">
+            <div class="cred-item">
+              <div class="cred-icon">◈</div>
+              <div class="cred-text">
+                <strong>2 anos no Tribunal de Justiça</strong> do Estado da
+                Bahia — experiência no setor público de alto valor formativo.
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-icon">◈</div>
+              <div class="cred-text">
+                Atuação principal em
+                <strong>Direito Civil, do Consumidor e Previdenciário</strong>,
+                com visão prática e humanizada.
+              </div>
             </div>
           </div>
-      
-          <div class="pt-6 mt-10 text-sm text-center text-gray-400 border-t border-gray-700">
-            <p>&copy; 2024 Escritório de Advocacia ABC - Todos os direitos reservados.</p>
-            <p class="mt-1">
-              <a href="#" class="hover:text-gray-300">Política de Privacidade</a> |
-              <a href="#" class="hover:text-gray-300">Termos de Uso</a>
-            </p>
+
+          <div class="about-quote">
+            "Não há justiça sem Deus, nem liberdade sem virtude, nem governo sem
+            moral."
+            <cite>— Ruy Barbosa</cite>
           </div>
+
+          <a
+            href="https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0"
+            target="_blank"
+            class="btn-gold"
+            >Fale com Chirley →</a
+          >
         </div>
-      </footer>
-      
-    
-  </div>
-  <button
-  id="scrollTopBtn"
-  class="fixed hidden p-3 text-white transition-all duration-300 rounded-full shadow-lg bg-cyan-900 bottom-8 right-8 hover:bg-cyan-950 hover:scale-110 hover:translate-y-[-5px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-950 animate-bounce"
-  style="background-image: linear-gradient(to right, #ffcb2f, #51400c);"> ↑</button>
->
+      </div>
+    </section>
 
-  <script src="public/bottomtop/index.js"></script>
+    <!-- VALUES -->
+    <section class="values-section">
+      <div style="max-width: 1000px; margin: 0 auto; text-align: center">
+        <p class="section-label reveal">Nossos Pilares</p>
+        <h2 class="section-title reveal">O que nos guia</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <div class="value-num">01</div>
+          <div class="value-title">Ética & Transparência</div>
+          <p class="value-desc">
+            Agimos com honestidade em todas as relações, sempre pautados pelo
+            rigor ético e pela integridade profissional.
+          </p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-num">02</div>
+          <div class="value-title">Comprometimento</div>
+          <p class="value-desc">
+            Defendemos os direitos dos clientes com empenho total, buscando as
+            melhores soluções jurídicas para cada caso.
+          </p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-num">03</div>
+          <div class="value-title">Excelência Técnica</div>
+          <p class="value-desc">
+            Buscamos o mais alto nível de competência jurídica, atualizando
+            constantemente nosso conhecimento.
+          </p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-num">04</div>
+          <div class="value-title">Clareza & Comunicação</div>
+          <p class="value-desc">
+            Mantemos os clientes informados com clareza e objetividade, para que
+            tenham confiança em cada etapa do processo.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<style>
-h1, h2, h3 {
-@apply text-cyan-950;
-}
-@keyframes fadeIn {
-  0% {
-      opacity: 0;
-      transform: translateY(10px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
+    <!-- CTA BAND -->
+    <div class="cta-band">
+      <div style="max-width: 600px; margin: 0 auto" class="reveal">
+        <div class="divider" style="margin-bottom: 2rem">
+          <div class="divider-line"></div>
+          <div class="divider-diamond" style="background: var(--ink)"></div>
+          <div class="divider-line"></div>
+        </div>
+        <h2>Precisa de orientação jurídica?</h2>
+        <p>
+          Entre em contato e agende uma consulta. Atendimento personalizado e
+          confidencial.
+        </p>
+        <a
+          href="https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0"
+          target="_blank"
+          class="btn-dark"
+          >Agendar pelo WhatsApp</a
+        >
+      </div>
+    </div>
 
-.opacity-0 {
-  opacity: 0;
-}
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">CPS<span>.</span> Advocacia</div>
+          <p class="footer-tagline">
+            "De tanto ver triunfar as nulidades… o homem chega a desanimar da
+            virtude." — Ruy Barbosa
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <a href="#saiba-mais">O Escritório</a>
+          <a href="#areas-atuacao">Áreas de Atuação</a>
+          <a href="#bibliografia">A Advogada</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a
+            href="https://api.whatsapp.com/send/?phone=5571991212939"
+            target="_blank"
+            >(71) 99121-2939</a
+          >
+          <a href="https://linktr.ee/chirleypordireito" target="_blank"
+            >Linktree</a
+          >
+          <p>Salvador — BA</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span
+          >© 2024 CPS Advocacia & Consultoria — Todos os direitos
+          reservados.</span
+        >
+        <span>
+          <a href="#">Política de Privacidade</a> &nbsp;|&nbsp;
+          <a href="#">Termos de Uso</a>
+        </span>
+      </div>
+    </footer>
 
-.fade-in {
-  animation: fadeIn 1s ease-out forwards;
-}
-</style>
-<script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
-<script>
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
+    <!-- SCROLL TOP -->
+    <button id="scrollTopBtn" aria-label="Voltar ao topo">↑</button>
 
-  menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-    mobileMenu.classList.toggle("flex");
-  });
+    <!-- WHATSAPP FLOAT -->
+    <a
+      class="wa-float"
+      href="https://api.whatsapp.com/send/?phone=5571991212939&text=Olá%2C+preciso+de+ajuda.&type=phone_number&app_absent=0"
+      target="_blank"
+      aria-label="WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+        />
+      </svg>
+    </a>
 
-  function closeMenu() {
-    mobileMenu.classList.add("hidden");
-    mobileMenu.classList.remove("flex");
-  }
-</script>
+    <script>
+      // Nav scroll
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 60);
+        const btn = document.getElementById("scrollTopBtn");
+        btn.classList.toggle("visible", window.scrollY > 300);
+      });
 
-<script>
-  const scrollTopBtn = document.getElementById("scrollTopBtn");
+      // Scroll top
+      document.getElementById("scrollTopBtn").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollTopBtn.classList.remove("hidden");
-    } else {
-      scrollTopBtn.classList.add("hidden");
-    }
-  });
+      // Mobile menu
+      function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("open");
+      }
 
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-<script src="./animation/animation.js"></script>
-</body>
+      // Reveal on scroll
+      const reveals = document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right",
+      );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => entry.target.classList.add("visible"), i * 80);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+
+      // Smooth anchor scroll
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const target = document.querySelector(a.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
