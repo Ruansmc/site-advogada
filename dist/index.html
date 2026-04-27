@@ -841,7 +841,6 @@
         transform: translateX(0);
       }
 
-      /* ── RESPONSIVE ── */
       @media (max-width: 900px) {
         nav {
           padding: 1rem 1.5rem;
@@ -895,7 +894,6 @@
     </style>
   </head>
   <body>
-    <!-- NAV -->
     <nav id="navbar">
       <a href="#" class="nav-logo">CPS<span>.</span></a>
       <div class="nav-links">
@@ -987,7 +985,6 @@
       </div>
     </div>
 
-    <!-- AREAS -->
     <section class="areas-section" id="areas-atuacao">
       <div style="max-width: 1100px; margin: 0 auto; text-align: center">
         <p class="section-label reveal">Especialidades</p>
@@ -1078,7 +1075,7 @@
         <div class="about-text reveal-right">
           <p class="section-label">A Advogada</p>
           <h2 class="section-title" style="margin-bottom: 1.5rem">
-            Chirley<br />Pordireito
+            Chirley<br />Por direito
           </h2>
           <p>
             Bacharela em Direito desde julho de 2020, Chirley construiu sua
@@ -1191,7 +1188,6 @@
       </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
       <div class="footer-inner">
         <div class="footer-brand">
@@ -1250,7 +1246,6 @@
     </a>
 
     <script>
-      // Nav scroll
       const navbar = document.getElementById("navbar");
       window.addEventListener("scroll", () => {
         navbar.classList.toggle("scrolled", window.scrollY > 60);
@@ -1263,7 +1258,7 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // Mobile menu
+      // menu celular
       function toggleMenu() {
         document.getElementById("mobileMenu").classList.toggle("open");
       }
