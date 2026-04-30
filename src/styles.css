@@ -874,3 +874,42 @@ footer {
     padding: 5rem 1.5rem;
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Suas customizações */
+@layer utilities {
+  .dark {
+    @apply text-gray-100 bg-gray-900;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply text-gray-100 bg-gray-900;
+  }
+}
+
+h1,
+h2,
+h3 {
+  @apply text-cyan-800;
+}
+
+/* Suas animações */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
