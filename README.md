@@ -10,7 +10,7 @@ São sete anos de experiência em escritório de contencioso de massa, tanto na 
 Mais dois anos de experiência junto ao Tribunal de Justiça do Estado da Bahia. A soma dos ensinamentos teóricos e práticos, do setor público e privado, contribuem com a construção e consolidação da prestação de serviços jurídicos empenhada pelo CPS Advocacia e Consultoria, com atuação em Direito Civil, Direito do Consumidor e Direito Previdenciário..
 [Site](https://site-advogada-phi.vercel.app)
 
-## ✔ Áreas de Atuação
+## Áreas de Atuação
 
 - Direito Civil
 - Direito Penal
